@@ -2,7 +2,8 @@
 
 namespace PersonLibrary
 {
-  internal class InternalPerson
+  // nivelul de access implicit va fi "internal"
+  class InternalPerson
   {
     private void SayHelloPrivate()
     {
