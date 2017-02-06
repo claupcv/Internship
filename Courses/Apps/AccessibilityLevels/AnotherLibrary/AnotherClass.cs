@@ -2,7 +2,7 @@
 {
   public class AnotherClass
   {
-    public void DoSomething()
+    public void DoSomethingWithInternalPerson()
     {
       // Acest apel da eroare
       // Error CS0122  'InternalPerson' is inaccessible due to its protection level
