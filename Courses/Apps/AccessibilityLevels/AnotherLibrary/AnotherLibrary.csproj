@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AnotherClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AnotherPublicPerson.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PersonLibrary\PersonLibrary.csproj">
