@@ -180,5 +180,135 @@ namespace CourseExercises.Classes
 
       Console.WriteLine();
     }
+
+    public static int[,] Transpose(int[,] matrix)
+    {
+      if (!MatrixHelper.ValidateMatrix(matrix))
+      {
+        return new int[0, 0];
+      }
+
+      int rows = matrix.GetLength(0),
+          cols = matrix.GetLength(1);
+
+      int[,] result = new int[cols, rows];
+
+      for (int i = 0; i < rows; i++)
+      {
+        for (int j = 0; j < cols; j++)
+        {
+          result[j, i] = matrix[i, j];
+        }
+      }
+
+      return result;
+    }
+
+    private static int DeterminantMatrix1_1(int[,] matrix)
+    {
+      if (!MatrixHelper.ValidateMatrix(matrix))
+      {
+        return 0;
+      }
+
+      int rows = matrix.GetLength(0),
+          cols = matrix.GetLength(1);
+
+      if ((rows != cols) || (rows != 1))
+      {
+        return 0;
+      }
+
+      return matrix[0, 0];
+    }
+
+    private static int DeterminantMatrix2_2(int[,] matrix)
+    {
+      if (!MatrixHelper.ValidateMatrix(matrix))
+      {
+        return 0;
+      }
+
+      int rows = matrix.GetLength(0),
+          cols = matrix.GetLength(1);
+
+      if ((rows != cols) || (rows != 2))
+      {
+        return 0;
+      }
+
+      return matrix[0, 0] * matrix[1, 1] - matrix[0, 1] * matrix[1, 0];
+    }
+
+    private static int[,] ExtractSubMatrix(int[,] matrix, int rowIdx, int colIdx)
+    {
+      if (!MatrixHelper.ValidateMatrix(matrix))
+      {
+        return new int[0, 0];
+      }
+
+      int rows = matrix.GetLength(0),
+          cols = matrix.GetLength(1);
+
+      if ((rowIdx < 0) || (rowIdx >= rows) || (colIdx < 0) || (colIdx >= cols))
+      {
+        return new int[0, 0];
+      }
+
+      int[,] result = new int[rows - rowIdx - 1, cols - colIdx - 1];
+
+      for (int i = rowIdx + 1; i < rows; i++)
+      {
+        for (int j = colIdx + 1; j < cols; j++)
+        {
+          result[i - rowIdx - 1, j - colIdx - 1] = matrix[i, j];
+        }
+      }
+
+      return result;
+    }
+
+    public static int DeterminantMatrix(int[,] matrix)
+    {
+      if (!MatrixHelper.ValidateMatrix(matrix))
+      {
+        return 0;
+      }
+
+      int rows = matrix.GetLength(0),
+          cols = matrix.GetLength(1);
+
+      if (rows != cols)
+      {
+        Console.WriteLine("The matrix is not square");
+        return 0;
+      }
+
+      if (matrix.Rank == 1)
+      {
+        return MatrixHelper.DeterminantMatrix1_1(matrix);
+      }
+      else if (matrix.Rank == 2)
+      {
+        return MatrixHelper.DeterminantMatrix2_2(matrix);
+      }
+      else
+      {
+        int det = 0;
+        for (int i = 0; i < cols; i++)
+        {
+          if(i % 2 == 0)
+          {
+            det += matrix[0, i] * DeterminantMatrix(ExtractSubMatrix(matrix, 0, i));
+          }
+          else
+          {
+            det -= matrix[0, i] * DeterminantMatrix(ExtractSubMatrix(matrix, 0, i));
+          }
+        }
+
+        return det;
+      }
+    }
   }
 }

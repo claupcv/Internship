@@ -4,10 +4,8 @@ namespace CourseExercises
 {
   class Program
   {
-    static void Main(string[] args)
+    private static void IllustrateVectorExercises()
     {
-      // Vector
-
       ConsoleHelper.WriteSeparator("Read a vector");
 
       int[] array = VectorHelper.ReadFromConsole();
@@ -32,9 +30,10 @@ namespace CourseExercises
       int[] reversedArray = VectorHelper.Reverse(array);
 
       VectorHelper.PrintToConsole(reversedArray);
+    }
 
-      // Matrix
-
+    private static void IllustrateMatrixExercises()
+    {
       ConsoleHelper.WriteSeparator("Read a matrix (general)");
 
       int[,] matrix = MatrixHelper.ReadFromConsole();
@@ -43,6 +42,15 @@ namespace CourseExercises
 
       MatrixHelper.PrintToConsole(matrix);
 
+      int[,] transposeMatrix = MatrixHelper.Transpose(matrix);
+
+      ConsoleHelper.WriteSeparator("Print transposed matrix (general)");
+
+      MatrixHelper.PrintToConsole(transposeMatrix);
+
+
+
+
       ConsoleHelper.WriteSeparator("Read a matrix (square)");
 
       int[,] squareMatrix = MatrixHelper.ReadSquareMatrixFromConsole();
@@ -50,6 +58,12 @@ namespace CourseExercises
       ConsoleHelper.WriteSeparator("Print a matrix (square)");
 
       MatrixHelper.PrintToConsole(squareMatrix);
+
+      int[,] transposeSquareMatrix = MatrixHelper.Transpose(squareMatrix);
+
+      ConsoleHelper.WriteSeparator("Print transposed matrix (square)");
+
+      MatrixHelper.PrintToConsole(transposeSquareMatrix);
 
       ConsoleHelper.WriteSeparator("Seek an element in a square matrix");
 
@@ -61,6 +75,16 @@ namespace CourseExercises
 
       MatrixHelper.PrintOddElements(squareMatrix);
       MatrixHelper.PrintEvenElements(squareMatrix);
+    }
+
+    static void Main(string[] args)
+    {
+      // Vector
+      IllustrateVectorExercises();
+
+
+      // Matrix
+      IllustrateMatrixExercises();
     }
   }
 }
