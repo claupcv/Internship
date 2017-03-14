@@ -204,6 +204,125 @@ namespace CourseExercises.Classes
       return result;
     }
 
+    public static int[,] Adjunct(int[,] matrix)
+    {
+      if (!MatrixHelper.ValidateMatrix(matrix))
+      {
+        return new int[0, 0];
+      }
+
+      int[,] transpose = MatrixHelper.Transpose(matrix);
+
+      if (!MatrixHelper.ValidateMatrix(transpose))
+      {
+        return new int[0, 0];
+      }
+
+      int rows = transpose.GetLength(0),
+          cols = transpose.GetLength(1);
+
+      int[,] adjunct = new int[rows, cols];
+
+      for (int i = 0; i < rows; i++)
+      {
+        for (int j = 0; j < cols; j++)
+        {
+          int sign = ((i + j) % 2 == 0) ? 1 : -1;
+
+          int minor = MatrixHelper.DeterminantMatrix(MatrixHelper.ZipRowAndColumn(transpose, i, j));
+
+          adjunct[j, i] = sign * minor;
+        }
+      }
+
+      return adjunct;
+    }
+
+    public static int[,] ZipRow(int[,] matrix, int rowIndex)
+    {
+      if (!MatrixHelper.ValidateMatrix(matrix))
+      {
+        return new int[0, 0];
+      }
+
+      int rows = matrix.GetLength(0),
+          cols = matrix.GetLength(1);
+
+      if (rows == 0)
+      {
+        return matrix;
+      }
+
+      if ((rowIndex < 0) || (rowIndex >= rows))
+      {
+        return matrix;
+      }
+
+      int[,] result = new int[rows - 1, cols];
+
+      for (int i = 0; i < rows; i++)
+      {
+        for (int j = 0; j < cols; j++)
+        {
+          if (i < rowIndex)
+          {
+            result[i, j] = matrix[i, j];
+          }
+          else if (i > rowIndex)
+          {
+            result[i - 1, j] = matrix[i, j];
+          }
+        }
+      }
+
+      return result;
+    }
+
+    public static int[,] ZipColumn(int[,] matrix, int colIndex)
+    {
+      if (!MatrixHelper.ValidateMatrix(matrix))
+      {
+        return new int[0, 0];
+      }
+
+      int rows = matrix.GetLength(0),
+          cols = matrix.GetLength(1);
+
+      if (cols == 0)
+      {
+        return matrix;
+      }
+
+      if ((colIndex < 0) || (colIndex >= cols))
+      {
+        return matrix;
+      }
+
+      int[,] result = new int[rows, cols - 1];
+
+      for (int i = 0; i < rows; i++)
+      {
+        for (int j = 0; j < cols; j++)
+        {
+          if (j < colIndex)
+          {
+            result[i, j] = matrix[i, j];
+          }
+          else if (j > colIndex)
+          {
+            result[i, j - 1] = matrix[i, j];
+          }
+        }
+      }
+
+      return result;
+    }
+
+    public static int[,] ZipRowAndColumn(int[,] matrix, int rowIndex, int colIndex)
+    {
+      return MatrixHelper.ZipColumn(MatrixHelper.ZipRow(matrix, rowIndex), colIndex);
+    }
+
     private static int DeterminantMatrix1_1(int[,] matrix)
     {
       if (!MatrixHelper.ValidateMatrix(matrix))
@@ -240,36 +359,12 @@ namespace CourseExercises.Classes
       return matrix[0, 0] * matrix[1, 1] - matrix[0, 1] * matrix[1, 0];
     }
 
-    private static int[,] ExtractSubMatrix(int[,] matrix, int rowIdx, int colIdx)
-    {
-      if (!MatrixHelper.ValidateMatrix(matrix))
-      {
-        return new int[0, 0];
-      }
-
-      int rows = matrix.GetLength(0),
-          cols = matrix.GetLength(1);
-
-      if ((rowIdx < 0) || (rowIdx >= rows) || (colIdx < 0) || (colIdx >= cols))
-      {
-        return new int[0, 0];
-      }
-
-      int[,] result = new int[rows - rowIdx - 1, cols - colIdx - 1];
-
-      for (int i = rowIdx + 1; i < rows; i++)
-      {
-        for (int j = colIdx + 1; j < cols; j++)
-        {
-          result[i - rowIdx - 1, j - colIdx - 1] = matrix[i, j];
-        }
-      }
-
-      return result;
-    }
-
     public static int DeterminantMatrix(int[,] matrix)
     {
+      // Uses Laplace expansion 
+      // Inspiration came from: http://www.mathsisfun.com/algebra/matrix-determinant.html
+      // See also: https://en.wikipedia.org/wiki/Laplace_expansion
+
       if (!MatrixHelper.ValidateMatrix(matrix))
       {
         return 0;
@@ -284,11 +379,11 @@ namespace CourseExercises.Classes
         return 0;
       }
 
-      if (matrix.Rank == 1)
+      if (rows == 1)
       {
         return MatrixHelper.DeterminantMatrix1_1(matrix);
       }
-      else if (matrix.Rank == 2)
+      else if (rows == 2)
       {
         return MatrixHelper.DeterminantMatrix2_2(matrix);
       }
@@ -297,14 +392,9 @@ namespace CourseExercises.Classes
         int det = 0;
         for (int i = 0; i < cols; i++)
         {
-          if(i % 2 == 0)
-          {
-            det += matrix[0, i] * DeterminantMatrix(ExtractSubMatrix(matrix, 0, i));
-          }
-          else
-          {
-            det -= matrix[0, i] * DeterminantMatrix(ExtractSubMatrix(matrix, 0, i));
-          }
+          int sign = (i % 2 == 0) ? 1 : (-1);
+
+          det += sign * matrix[0, i] * MatrixHelper.DeterminantMatrix(MatrixHelper.ZipRowAndColumn(matrix, 0, i));
         }
 
         return det;
