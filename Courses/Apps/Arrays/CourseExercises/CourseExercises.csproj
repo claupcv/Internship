@@ -45,12 +45,22 @@
   <ItemGroup>
     <Compile Include="Classes\ConsoleHelper.cs" />
     <Compile Include="Classes\MatrixHelper.cs" />
+    <Compile Include="InteractiveMenu.cs" />
+    <Compile Include="InteractiveMenu.exercises-common.cs" />
+    <Compile Include="InteractiveMenu.exercises-matrix-general.cs" />
+    <Compile Include="InteractiveMenu.exercises-matrix-square.cs" />
+    <Compile Include="InteractiveMenu.menu-main.cs" />
+    <Compile Include="InteractiveMenu.menu-matrix-general.cs" />
+    <Compile Include="InteractiveMenu.menu-matrix-square.cs" />
+    <Compile Include="InteractiveMenu.menu-matrix.cs" />
+    <Compile Include="InteractiveMenu.menu-vector.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\VectorHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Compile Include="InteractiveMenu.exercises-vector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
