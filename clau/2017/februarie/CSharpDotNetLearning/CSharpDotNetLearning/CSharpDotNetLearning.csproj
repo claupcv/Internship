@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8EEC6FC8-8746-4806-9804-96529E650D8F}</ProjectGuid>
+    <ProjectGuid>{5D5CBB12-016A-4B8A-8734-45F5F562B945}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Classes</RootNamespace>
-    <AssemblyName>Classes</AssemblyName>
+    <RootNamespace>CSharpDotNetLearning</RootNamespace>
+    <AssemblyName>CSharpDotNetLearning</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,14 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Indexers.cs" />
-    <Compile Include="InstanceClass.cs" />
-    <Compile Include="InstanceVSStatic.cs" />
-    <Compile Include="PersonProperties.cs" />
+    <Compile Include="DeclarareShowSortSumArrayUniMultiDimensional.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReadonlyClass.cs" />
-    <None Include="StaticClassInheritance.cs" />
+    <Compile Include="StringExcercisesArray.cs" />
+    <Compile Include="StringExcercises.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
