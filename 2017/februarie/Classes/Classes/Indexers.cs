@@ -16,7 +16,6 @@ namespace Classes
         {
             get
             {
-
                 return this.array[index];
             }
             set

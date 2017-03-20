@@ -44,10 +44,12 @@
     <Compile Include="Indexers.cs" />
     <Compile Include="InstanceClass.cs" />
     <Compile Include="InstanceVSStatic.cs" />
+    <Compile Include="OverloadMethods.cs" />
     <Compile Include="PersonProperties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadonlyClass.cs" />
+    <Compile Include="Singleton.cs" />
     <None Include="StaticClassInheritance.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -38,12 +38,11 @@ namespace Classes
             // PROPERTIES
             Console.WriteLine("============PROPERTIES============");
             Person personProperties = new Person();
-
             // din exteriorul clasei
             // sintaxa este foarte asemanatoare cu sintaxa de access la campuri
             personProperties.PersonName = "John Doe";
-
             Console.WriteLine(personProperties.PersonName);
+
             // INDEXERS
             Console.WriteLine("============INDEXERS============");
             Indexers indexers = new Indexers();
@@ -57,7 +56,16 @@ namespace Classes
             // intocmai ca la un hashtable / dictionar
             Console.WriteLine(indexers["name"]);
             Console.WriteLine(indexers["name1"]);
-            
+
+            // METHODS
+            Console.WriteLine("============METHODS============");
+            OverloadMethods.Message("Overload : Only string");
+            OverloadMethods.Message("Overload : Only string with loop", 5);
+
+            //SINGLETONE allow only 1 instance
+            Console.WriteLine("============SINGLETONE============");
+            Singleton test = Singleton.Instance;
+            Singleton test1 = Singleton.Instance;
             Console.ReadKey();
         }
     }
