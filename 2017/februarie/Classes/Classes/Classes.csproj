@@ -41,18 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassInheritance.cs" />
+    <Compile Include="ClassInheritanceConstructorsAndDestructorsAndFields.cs" />
+    <Compile Include="Destructor.cs" />
     <Compile Include="Indexers.cs" />
     <Compile Include="InstanceClass.cs" />
     <Compile Include="InstanceVSStatic.cs" />
+    <Compile Include="NestedType.cs" />
     <Compile Include="NonPublicConstructor.cs" />
     <Compile Include="ObjectInitializer.cs" />
     <Compile Include="OverloadMethods.cs" />
+    <Compile Include="PartialClassMethodsPartOne.cs" />
+    <Compile Include="PartialClassMethodsPartTwo.cs" />
     <Compile Include="PersonProperties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadonlyClass.cs" />
     <Compile Include="Singleton.cs" />
     <Compile Include="StaticConstructor.cs" />
+    <Compile Include="StaticInheritance.cs" />
     <None Include="StaticClassInheritance.cs" />
   </ItemGroup>
   <ItemGroup>

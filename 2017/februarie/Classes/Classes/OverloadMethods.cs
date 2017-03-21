@@ -11,7 +11,7 @@ namespace Classes
         // method with 2 param, and return void(no return)
         public static void Message(string message)
         {
-            Console.WriteLine(message);
+            Console.WriteLine(message+ "bla");
         }
 
         public static void Message(string message, int count)
@@ -22,8 +22,7 @@ namespace Classes
                 {
                     OverloadMethods.Message(message);
                 }
-            }
-
+            }            
         }
     }
 }
