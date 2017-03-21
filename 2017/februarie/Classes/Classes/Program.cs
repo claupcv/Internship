@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Classes
 {
@@ -66,7 +67,40 @@ namespace Classes
             Console.WriteLine("============SINGLETONE============");
             Singleton test = Singleton.Instance;
             Singleton test1 = Singleton.Instance;
-            Console.ReadKey();
+
+            //NON PUBLIC CONSTRUCTOR allow only 1 instance
+            Console.WriteLine("============NON PUBLIC CONSTRUCTOR============");
+            NonPublicConstructor npc = NonPublicConstructor.Between(111, 13);
+             Console.WriteLine(npc.next());
+
+             //OBJECT INITIALIZER
+             Console.WriteLine("============OBJECT INITIALIZER============");
+
+             ObjectInitializer oi = new ObjectInitializer
+             {
+                 FirstName = "John",
+                 LastName = "Doe"
+             };
+             Console.WriteLine("Firstname:{0} and lastname:{1}",oi.FirstName, oi.LastName);
+
+
+             //STATIC CONSTRUCTOR
+             Console.WriteLine("============STATIC CONSTRUCTOR============");
+
+             DateTime now = DateTime.Now;
+             Console.WriteLine("Now: {0}", now);
+
+             Thread.Sleep(2000);
+             StaticConstructor app = new StaticConstructor();             
+             Console.WriteLine("App startup: {0}", StaticConstructor.Startup);
+
+             Thread.Sleep(2000);
+             now = DateTime.Now;
+             Console.WriteLine("Now: {0}", now);
+
+
+
+             Console.ReadKey();
         }
     }
 }
