@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    public static class  OverloadMethods
+    public static class OverloadMethods
     {
         // method with 2 param, and return void(no return)
         public static void Message(string message)
         {
-            Console.WriteLine(message+ "bla");
+            Console.WriteLine(message + "bla");
         }
 
         public static void Message(string message, int count)
@@ -22,7 +22,7 @@ namespace Classes
                 {
                     OverloadMethods.Message(message);
                 }
-            }            
+            }
         }
     }
 }

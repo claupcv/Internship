@@ -39,10 +39,10 @@ namespace Classes
                     this.personName = string.Empty;
                 }
             }
-            
+
         }
         // properties - simples sintax of properties
-        protected string PersonSurname {get;set;}
+        protected string PersonSurname { get; set; }
         public void PrintNameproperties()
         {
             // acces sintax is same as fields
