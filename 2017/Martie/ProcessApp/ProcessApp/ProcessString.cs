@@ -6,25 +6,28 @@ using System.Threading.Tasks;
 
 namespace ProcessApp
 {
-    public class ProcessString : ProcessCore
+    public class ProcessString
     {
-        public ProcessString() { }
-
         /// <summary>
         /// Run the process for string values 
         /// </summary>
         /// <param name="textString">Input string values</param>
-        public void Run(string textString)
+        public void Run(string stringProperty, int i)
         {
-            if (this.VerifyInputData(textString))
-            {
-                this.SuccesHandling(this.SuccesfulCode);
 
-                this.DisplayOutputProcessdata(textString);
+            string inputedData = string.Empty;
+            bool succesFlag = false;
+            inputedData = base.ConsoleInput("String");
+            succesFlag = base.VerifyInputDataString(inputedData);
+
+            if (base.VerifyInputDataString(inputedData) == true)
+            {
+                base.SuccessHandling(SuccesfulCode);
+                DisplayOutputProcessdata(inputedData);
             }
             else
             {
-                this.ErrorHandling(this.errorCode);
+                ErrorHandling(this.errorCode);
             }
 
         }

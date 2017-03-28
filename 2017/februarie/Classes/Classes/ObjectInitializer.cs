@@ -8,7 +8,7 @@ namespace Classes
 {
     class ObjectInitializer
     {
-        private readonly int maxLengthName;
+        //private readonly int maxLengthName;
  
         public string FirstName { get; set; }
  

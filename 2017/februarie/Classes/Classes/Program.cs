@@ -142,7 +142,13 @@ namespace Classes
             StaticInheritanceDerivedClass.Test();
             StaticInheritanceBaseClass.Test();
 
-
+            // COMPOSITION
+            Console.WriteLine("============COMPOSITION============");
+            CarComposition carComposition = new CarComposition();
+            carComposition.Start();            
+            carComposition.TurnRigth();
+            carComposition.TurnLeft();
+            carComposition.Stop();
 
             Console.ReadKey();
         }

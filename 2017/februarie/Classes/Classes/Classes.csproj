@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractClassAndMethods.cs" />
+    <Compile Include="CarComposition.cs" />
     <Compile Include="ClassInheritance.cs" />
     <Compile Include="ClassInheritanceConstructorsAndDestructorsAndFields.cs" />
     <Compile Include="Destructor.cs" />

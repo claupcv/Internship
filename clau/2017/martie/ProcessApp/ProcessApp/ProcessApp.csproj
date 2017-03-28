@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{87F5F2D7-49F9-449B-8519-A91E2178CEF8}</ProjectGuid>
+    <ProjectGuid>{AF81CAD8-177B-4631-98E0-1FDA7A184D32}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProcessApp</RootNamespace>
@@ -42,15 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleInteratctiveMenu.cs" />
-    <Compile Include="Library\ConsoleHelper.cs" />
-    <Compile Include="Person.cs" />
-    <Compile Include="ProcessFlow.cs" />
-    <None Include="ProcessString.cs" />
+    <Compile Include="ProcessCore.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

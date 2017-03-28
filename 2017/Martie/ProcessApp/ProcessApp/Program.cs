@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace ProcessApp
 {
@@ -10,13 +7,17 @@ namespace ProcessApp
     {
         static void Main(string[] args)
         {
-            ProcessString processString = new ProcessString();
-            processString.Run(1);
+            ProcessFlow processFlow = new ProcessFlow();
 
-            //procesCore.Run(" 11");
+            //processFlow.Run("String");
+
+            processFlow.Run(new Person());
+            processFlow.Run(new Person());
+            processFlow.Run(new Person());
+
+            
             //ConsoleInteratctiveMenu mainMenu = new ConsoleInteratctiveMenu();
             //mainMenu.RunMenu();
-
             Console.ReadKey();
         }
     }
