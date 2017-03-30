@@ -65,11 +65,5 @@ namespace ProcessApp
                 }
             }
         }
-
-        public void Run(string firstName, string lastName, int age)
-        {
-
-        }
-
     }
 }

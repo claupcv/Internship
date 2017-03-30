@@ -7,13 +7,15 @@ namespace ProcessApp
     {
         static void Main(string[] args)
         {
-            ProcessFlow processFlow = new ProcessFlow();
+            ProcessString processString = new ProcessString();
+            //processString.Run("Text", FieldType.String.ToString());
 
-            //processFlow.Run("String");
 
-            processFlow.Run(new Person());
-            //processFlow.Run(new Person());
-            //processFlow.Run(new Person());
+            ProcessPerson processPerson = new ProcessPerson();
+            //processPerson.Run(new Person());
+
+            ProcessPersonException processPersonException = new ProcessPersonException();
+            processPersonException.Run(new Person());
 
 
             //ConsoleInteratctiveMenu mainMenu = new ConsoleInteratctiveMenu();
