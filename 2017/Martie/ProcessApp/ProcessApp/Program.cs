@@ -12,10 +12,10 @@ namespace ProcessApp
             //processFlow.Run("String");
 
             processFlow.Run(new Person());
-            processFlow.Run(new Person());
-            processFlow.Run(new Person());
+            //processFlow.Run(new Person());
+            //processFlow.Run(new Person());
 
-            
+
             //ConsoleInteratctiveMenu mainMenu = new ConsoleInteratctiveMenu();
             //mainMenu.RunMenu();
             Console.ReadKey();

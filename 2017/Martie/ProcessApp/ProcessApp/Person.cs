@@ -14,7 +14,7 @@ namespace ProcessApp
 
         public int Age { get; set; }
 
-        public static int populationCount;
+        public static int populationCount = 0;
 
         public Person()
         {
@@ -27,23 +27,23 @@ namespace ProcessApp
         public string this[string propertyName]
         {
             get
+            {
+                if (!string.IsNullOrWhiteSpace(propertyName))
                 {
-                    if (!string.IsNullOrWhiteSpace(propertyName))
+                    switch (propertyName.ToUpper())
                     {
-                        switch (propertyName.ToUpper())
-                        {
-                            case "LASTNAME":
-                                return this.LastName;
- 
-                            case "FIRSTNAME":
-                                return this.FirstName;
-                            case "AGE":
-                                return this.Age.ToString();
-                        }
-                  }
- 
-                  return null;
+                        case "LASTNAME":
+                            return this.LastName;
+
+                        case "FIRSTNAME":
+                            return this.FirstName;
+                        case "AGE":
+                            return this.Age.ToString();
+                    }
                 }
+
+                return null;
+            }
             set
             {
                 if (!string.IsNullOrWhiteSpace(propertyName))
@@ -68,7 +68,7 @@ namespace ProcessApp
 
         public void Run(string firstName, string lastName, int age)
         {
-            
+
         }
 
     }

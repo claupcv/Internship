@@ -4,11 +4,23 @@ using System.ComponentModel;
 
 namespace ProcessApp
 {
+
+
     /// <summary>
     /// Run process Core
     /// </summary>
+    /// 
     public class ProcessFlow
     {
+        enum errorCode1 :string
+        {
+            textEmpty = "ERROR: Text is empty",
+            noVisibleText = "ERROR: Text has no visible text"
+
+        }
+
+
+
         public readonly Guid PID;
 
         public bool statusFlag { get; set; }
@@ -16,6 +28,7 @@ namespace ProcessApp
         protected string errorCode { get; set; }
 
         protected string SuccesfulCode { get; set; }
+
 
         /// <summary>
         /// initialize values in CTOR
@@ -47,15 +60,15 @@ namespace ProcessApp
                 this.errorCode = "ERROR: Text has no visible text";
             }
             else if (type == "int")
-            { 
+            {
                 int num;
-                if (int.TryParse(inputConsole, out num ) != true)
+                if (int.TryParse(inputConsole, out num) != true)
                 {
                     statusFlag = false;
                 }
             }
-            else 
-            {                
+            else
+            {
                 statusFlag = true;
                 this.SuccesfulCode = "PASSED: Text is good for processing";
             }
@@ -110,7 +123,7 @@ namespace ProcessApp
 
         // can be used Run(string)
         public void Run(Person person)
-        {            
+        {
             if (person != null)
             {
                 // can be made more object oriented
