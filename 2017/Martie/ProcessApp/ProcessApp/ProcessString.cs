@@ -11,16 +11,15 @@ namespace ProcessApp
         protected override bool StatusFlag { get; set; }
 
         protected override string ErrorSuccesCode { get; set; }
-        
+
         private string Text { get; set; }
-
-
 
         public ProcessString()
         {
             this.StatusFlag = true;
             this.ErrorSuccesCode = string.Empty;
         }
+
 
         public string this[string propertyName]
         {
@@ -56,8 +55,6 @@ namespace ProcessApp
         }
 
         public override void ConsoleInputVerifyInputValue(Person person, string inputLabel, string type)
-        { }
-        public override void ConsoleInputVerifyInputValue(string inputLabel, string type)
         {
             Console.Write("Input data:{0} = ", inputLabel);
             string inputConsole = Console.ReadLine();
@@ -89,17 +86,12 @@ namespace ProcessApp
             }
         }
 
-        public override void Run(Person person)
-        {
-
-        }
-
-        public override void Run(string inputField, string type)
+        public override void Run(Person person, string inputField, string type)
         {
 
             Console.WriteLine("PROCESS STRING");
 
-            this.ConsoleInputVerifyInputValue(inputField, type);
+            this.ConsoleInputVerifyInputValue(null, inputField, type);
             if (this.StatusFlag == true)
             {
                 this.OutputToConsole(this[inputField]);
@@ -111,6 +103,6 @@ namespace ProcessApp
         {
             Console.WriteLine(errorCodeHandling.ToString());
         }
-        
+
     }
 }

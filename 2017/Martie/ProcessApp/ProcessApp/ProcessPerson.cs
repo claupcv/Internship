@@ -20,12 +20,9 @@ namespace ProcessApp
             this.ErrorSuccesCode = string.Empty;
         }
 
-
-        public override void ConsoleInputVerifyInputValue(string inputLabel, string type)
-        { }
         public override void ConsoleInputVerifyInputValue(Person person, string inputLabel, string type)
         {
-            
+
             Console.Write("Input data:{0} = ", inputLabel);
             string inputConsole = Console.ReadLine();
             int num;
@@ -53,7 +50,7 @@ namespace ProcessApp
             {
                 person[inputLabel] = inputConsole;
             }
-            
+
         }
 
         public override void OutputToConsole(string textOutput)
@@ -62,7 +59,7 @@ namespace ProcessApp
         }
 
 
-        public override void Run(Person person)
+        public override void Run(Person person, string inputField, string type)
         {
             Console.WriteLine("PROCESS PERSON");
             //person = null;
@@ -90,11 +87,6 @@ namespace ProcessApp
                 OutputToConsole(Person.populationCount.ToString());
             }
             this.ErrorSuccesMessage(this.ErrorSuccesCode.ToString());
-        }
-
-        public override void Run(string inputField, string type)
-        {
-
         }
 
         protected override void ErrorSuccesMessage(string errorCodeHandling)

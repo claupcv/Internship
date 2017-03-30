@@ -8,14 +8,14 @@ namespace ProcessApp
         static void Main(string[] args)
         {
             ProcessString processString = new ProcessString();
-            //processString.Run("Text", FieldType.String.ToString());
+            //processString.Run(null, "Text", FieldType.String.ToString());
 
 
             ProcessPerson processPerson = new ProcessPerson();
-            //processPerson.Run(new Person());
+            processPerson.Run(new Person(), "", "");
 
             ProcessPersonException processPersonException = new ProcessPersonException();
-            processPersonException.Run(new Person());
+            //processPersonException.Run(new Person(), "", "");
 
 
             //ConsoleInteratctiveMenu mainMenu = new ConsoleInteratctiveMenu();
