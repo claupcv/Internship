@@ -11,10 +11,10 @@ namespace ProcessApp
             //processString.Run(null, "Text", FieldType.String.ToString());
 
 
-            ProcessPerson processPerson = new ProcessPerson();
-            processPerson.Run(new Person(), "", "");
+            //ProcessPerson processPerson = new ProcessPerson();
+            //processPerson.Run(new Person(), "", "");
 
-            ProcessPersonException processPersonException = new ProcessPersonException();
+            //ProcessPersonException processPersonException = new ProcessPersonException();
             //processPersonException.Run(new Person(), "", "");
 
 

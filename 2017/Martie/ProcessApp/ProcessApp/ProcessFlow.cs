@@ -5,8 +5,8 @@ using System.ComponentModel;
 namespace ProcessApp
 {
 
-    // FLORIN: Types should be in PascalCasing
-    public enum errorCodes
+    // FLORIN: Types should be in PascalCasing - DONE
+    public enum ErrorCodes
     {
         //[Description("ERROR: Text is empty")]
         TextEmpty,
@@ -20,15 +20,11 @@ namespace ProcessApp
 
         NotNumber,
 
-        NoImput,
+        NoInput,
 
-        NullInstance
-    }
+        NullInstance,
 
-    public enum SuccesfulCodes
-    {
-        //[Description("PASSED: Text is good for processing")]
-        TextOK
+        SuccesfullRunProcess
     }
 
     public enum FieldType
@@ -37,33 +33,44 @@ namespace ProcessApp
         String
     }
 
-
     public abstract class ProcessFlow
-    {
-        //OBS : make abstract because it depends on the process, but cannot be readonly
-        public readonly Guid PID;
-
-        // FLORIN: move to another class, e.g.: ProcessResult
-        protected abstract bool StatusFlag { get; set; }
-
-        // FLORIN: move to another class, e.g.: ProcessResult
-        protected abstract string ErrorSuccesCode { get; set; }
+    {        
+        public readonly Guid PID;       
 
         public ProcessFlow()
         {
             this.PID = System.Guid.NewGuid();
         }
 
+        protected abstract void ValidationProcess(object input);
 
-        // FLORIN: Not this class responsibility!
-        public abstract void ConsoleInputVerifyInputValue(Person person, string inputLabel, string type);
+        protected abstract void PreProcessingProcess(object input);
 
-        // FLORIN: Not this class responsibility!
-        public abstract void OutputToConsole(string textOutput);
+        protected abstract void ProcessingProcess(object input);
 
-        //public abstract void Run(Person person);
+        protected abstract void PostProcessingProcess(object input);
+        
         // FLORIN: Run should enforce the process flow
-        public abstract void Run(Person person, string inputField, string type);
+        public ProcessResult Run(Object objectProcess)
+        {
+            ProcessResult processResult = new ProcessResult();
+            
+            ValidationProcess(objectProcess);
+            if (processResult.StatusFlag==true)
+            {
+                PreProcessingProcess(objectProcess);
+            }
+            if (processResult.StatusFlag == true)
+            {
+                ProcessingProcess(objectProcess);
+            }
+            if (processResult.StatusFlag == true)
+            {
+                PostProcessingProcess(objectProcess);
+            }
+            
+            return processResult;
+        }
 
         // FLORIN: You can enforce the process flow this way:
         // 1) Define some abstract/virtual methods that correspond to each processing phase (Validation, Pre-Processing, Processing, Post-Processing)
@@ -72,7 +79,6 @@ namespace ProcessApp
         protected abstract void ErrorSuccesMessage(string errorCodeHandling);
 
         //protected abstract void ResultConsoleOutput(string output);
-
 
     }
 }

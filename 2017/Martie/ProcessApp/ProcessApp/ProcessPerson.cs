@@ -29,22 +29,22 @@ namespace ProcessApp
             if (string.IsNullOrEmpty(inputConsole))
             {
                 StatusFlag = false;
-                this.ErrorSuccesCode = errorCodes.TextEmpty.ToString();
+                this.ErrorSuccesCode = ErrorCodes.TextEmpty.ToString();
             }
             else if (string.IsNullOrWhiteSpace(inputConsole))
             {
                 StatusFlag = false;
-                this.ErrorSuccesCode = errorCodes.NoVisibleText.ToString();
+                this.ErrorSuccesCode = ErrorCodes.WhitespacesOnlyText.ToString();
             }
             else if (type.ToUpper() == "INT" && int.TryParse(inputConsole, out num) != true)
             {
                 StatusFlag = false;
-                this.ErrorSuccesCode = errorCodes.NotNumber.ToString();
+                this.ErrorSuccesCode = ErrorCodes.NotNumber.ToString();
             }
             else
             {
                 StatusFlag = true;
-                this.ErrorSuccesCode = SuccesfulCodes.TextOK.ToString();
+                this.ErrorSuccesCode = ErrorCodes.TextOK.ToString();
             }
             if (StatusFlag == true)
             {
@@ -66,7 +66,7 @@ namespace ProcessApp
             if (person == null)
             {
                 this.StatusFlag = false;
-                this.ErrorSuccesCode = errorCodes.NullInstance.ToString();
+                this.ErrorSuccesCode = ErrorCodes.NullInstance.ToString();
             }
 
             if (this.StatusFlag == true)
