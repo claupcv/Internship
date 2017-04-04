@@ -1,18 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6262A782-1E1A-41A9-8A0A-E537881D8E52}</ProjectGuid>
+    <ProjectGuid>{5D5CBB12-016A-4B8A-8734-45F5F562B945}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CourseExercises</RootNamespace>
-    <AssemblyName>CourseExercises</AssemblyName>
+    <RootNamespace>CSharpDotNetLearning</RootNamespace>
+    <AssemblyName>CSharpDotNetLearning</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,28 +38,17 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\ConsoleHelper.cs" />
-    <Compile Include="Classes\MatrixHelper.cs" />
-    <Compile Include="InteractiveMenu.cs" />
-    <Compile Include="InteractiveMenu.exercises-common.cs" />
-    <Compile Include="InteractiveMenu.exercises-matrix-general.cs" />
-    <Compile Include="InteractiveMenu.exercises-matrix-square.cs" />
-    <Compile Include="InteractiveMenu.menu-main.cs" />
-    <Compile Include="InteractiveMenu.menu-matrix-general.cs" />
-    <Compile Include="InteractiveMenu.menu-matrix-square.cs" />
-    <Compile Include="InteractiveMenu.menu-matrix.cs" />
-    <Compile Include="InteractiveMenu.menu-vector.cs" />
+    <Compile Include="DeclarareShowSortSumArrayUniMultiDimensional.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Classes\VectorHelper.cs" />
+    <Compile Include="StringExcercisesArray.cs" />
+    <Compile Include="StringExcercises.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <Compile Include="InteractiveMenu.exercises-vector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
