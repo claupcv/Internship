@@ -8,19 +8,24 @@ namespace ProcessApp
 {
     public class Person
     {
-        public string FirstName { get; set; }
+        public string FirstName;
 
-        public string LastName { get; set; }
+        public string LastName;
 
-        public int Age { get; set; }
+        public int Age;
 
         public static int populationCount = 0;
-
         public Person()
+            :this("","",0)
         {
-            this.FirstName = string.Empty;
-            this.LastName = string.Empty;
-            this.Age = 0;
+
+        }
+
+        public Person(string firstName, string lastName, int age)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Age = age;
             populationCount++;
         }
 

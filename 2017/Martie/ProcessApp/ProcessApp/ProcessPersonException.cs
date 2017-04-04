@@ -8,9 +8,9 @@ namespace ProcessApp
 {
     class ProcessPersonException : ProcessPerson
     {
-        public override void OutputToConsole(string textOutput)
+        public override void PostProcessingProcess(ProcessResult processResult)
         {
-            throw new System.ArgumentException("No Person Count");
+            throw new System.ArgumentException(ErrorCodes.NoPersonCountException.ToString());
         }
     }
 }
