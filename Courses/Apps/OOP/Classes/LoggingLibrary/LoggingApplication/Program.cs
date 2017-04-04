@@ -11,7 +11,7 @@ namespace LoggingApplication
   {
     static void Main(string[] args)
     {
-      ApplicationLog.Initialize(LoggerType.WindowsEventViewer);
+      ApplicationLog.Initialize(LoggerType.ConsoleWindow);
 
       Console.WriteLine("Starting app ...");
 

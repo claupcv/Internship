@@ -4,12 +4,26 @@ using System.Diagnostics;
 
 namespace LoggingLibrary.Implementations.WindowsEventViewer
 {
+  /// <summary>
+  /// Concrete logger, which writes exceptions to Windows Event Viewer
+  /// </summary>
   public class WindowsEventViewerLogger : Logger
   {
+    /// <summary>
+    /// Holds the log name
+    /// </summary>
     private const string LogName = "Application";
 
+    /// <summary>
+    /// Holds the log source
+    /// </summary>
     private const string LogSource = "Trencadis";
 
+    /// <summary>
+    /// Writes an exception to the Windows Event Viewer
+    /// </summary>
+    /// <param name="level">The log level</param>
+    /// <param name="e">The exception</param>
     public override void Write(LogLevel level, Exception e)
     {
       var exceptionSerializer = new WindowsEventViewerExceptionStringSerializer(level, e, DateTime.Now);
@@ -31,6 +45,11 @@ namespace LoggingLibrary.Implementations.WindowsEventViewer
       }
     }
 
+    /// <summary>
+    /// Translates our <see cref="LogLevel"/> into a corresponding <see cref="EventLogEntryType"/> required by Event Viewer's API
+    /// </summary>
+    /// <param name="level">The log level</param>
+    /// <returns>A <see cref="EventLogEntryType"/> value corresponding to the specified <see cref="LogLevel"/></returns>
     protected virtual EventLogEntryType GetEventLogEntryType(LogLevel level)
     {
       switch (level)
@@ -50,6 +69,11 @@ namespace LoggingLibrary.Implementations.WindowsEventViewer
       }
     }
 
+    /// <summary>
+    /// Gets an Event ID (as required by the Event Viewer API) based on the specified <see cref="LogLevel"/>
+    /// </summary>
+    /// <param name="level">The log level</param>
+    /// <returns>An Event ID corresponding to the specified <see cref="LogLevel"/></returns>
     protected virtual int GetEventID(LogLevel level)
     {
       return (int)level;
