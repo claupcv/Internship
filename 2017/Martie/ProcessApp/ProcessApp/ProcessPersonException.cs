@@ -10,7 +10,7 @@ namespace ProcessApp
     {
         public override void PostProcessingProcess(ProcessResult processResult)
         {
-            throw new System.ArgumentException(ErrorCodes.NoPersonCountException.ToString());
+            throw new System.ArgumentException(ErrorCodes.NoPersonCountException.ToString() + " " + base.PID.ToString());
         }
     }
 }

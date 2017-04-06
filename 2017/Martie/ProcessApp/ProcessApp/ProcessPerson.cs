@@ -12,7 +12,7 @@ namespace ProcessApp
 
         public ProcessPerson()
         {
-            
+
         }
 
         public override void ValidationProcess(ProcessResult processResult)
@@ -34,7 +34,7 @@ namespace ProcessApp
         {
             //Verificare la Intrare
             this.person.FirstName = ConsoleInteratctiveMenu.ConsoleRead("FirstName");
-            this.person.LastName = ConsoleInteratctiveMenu.ConsoleRead("LastName");            
+            this.person.LastName = ConsoleInteratctiveMenu.ConsoleRead("LastName");
             this.person.Age = Convert.ToInt32(ConsoleInteratctiveMenu.ConsoleRead("Age"));
             //person = new Person(firstName, lastName, age);
         }
@@ -48,7 +48,7 @@ namespace ProcessApp
 
             ProcessString processStringLastName = new ProcessString("LastName", this.person.LastName);
             ProcessResult resultExecutionLastName = processStringLastName.Run();
-            resultExecutionLastName.ErrorSuccesMessage();            
+            resultExecutionLastName.ErrorSuccesMessage();
 
             ProcessString processStringAge = new ProcessString("Age", this.person.Age.ToString());
             ProcessResult resultExecutionAge = processStringAge.Run();
@@ -73,7 +73,7 @@ namespace ProcessApp
 
         public override void PostProcessingProcess(ProcessResult processResult)
         {
-            ConsoleInteratctiveMenu.ConsoleWrite("Person NO. ", Person.populationCount.ToString());
+            ConsoleInteratctiveMenu.ConsoleWrite("Person NO. ", Person.populationCount.ToString() + " " + base.PID.ToString());
         }
     }
 }

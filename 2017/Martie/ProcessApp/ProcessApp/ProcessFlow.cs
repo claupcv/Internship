@@ -38,8 +38,8 @@ namespace ProcessApp
     }
 
     public abstract class ProcessFlow
-    {        
-        public readonly Guid PID;       
+    {
+        public readonly Guid PID;
 
         public ProcessFlow()
         {
@@ -62,7 +62,7 @@ namespace ProcessApp
         {
             processResult.StatusFlag = true;
         }
-        
+
         // FLORIN: Run should enforce the process flow
         public ProcessResult Run()
         {
@@ -70,21 +70,21 @@ namespace ProcessApp
 
             if (processResult.StatusFlag == true)
             {
-                ValidationProcess(processResult);
-            }
-            if (processResult.StatusFlag==true)
-            {
-                PreProcessingProcess(processResult);
+                this.ValidationProcess(processResult);
             }
             if (processResult.StatusFlag == true)
             {
-                ProcessingProcess(processResult);
+                this.PreProcessingProcess(processResult);
             }
             if (processResult.StatusFlag == true)
             {
-                PostProcessingProcess(processResult);
+                this.ProcessingProcess(processResult);
             }
-            
+            if (processResult.StatusFlag == true)
+            {
+                this.PostProcessingProcess(processResult);
+            }
+
             return processResult;
         }
 
@@ -92,7 +92,7 @@ namespace ProcessApp
         // 1) Define some abstract/virtual methods that correspond to each processing phase (Validation, Pre-Processing, Processing, Post-Processing)
         // 2) You compose the process flow in the Run method
 
-        
+
 
         //protected abstract void ResultConsoleOutput(string output);
 

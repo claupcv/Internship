@@ -12,7 +12,7 @@ namespace ProcessApp
         private string Label { get; set; }
 
         public ProcessString()
-            :this("","")
+            : this("", "")
         {
 
         }
@@ -23,9 +23,9 @@ namespace ProcessApp
         }
 
         public ProcessString(string labelText, string text)
-        {        
+        {
             this.Label = labelText;
-            this.Text = text;            
+            this.Text = text;
         }
 
         public override void ValidationProcess(ProcessResult processResult)
@@ -49,7 +49,7 @@ namespace ProcessApp
 
         public override void ProcessingProcess(ProcessResult processResult)
         {
-            ConsoleInteratctiveMenu.ConsoleWrite(this.Label, this.Text);
+            ConsoleInteratctiveMenu.ConsoleWrite(this.Label, this.Text + " " + base.PID.ToString());
             processResult.StatusFlag = true;
         }
     }

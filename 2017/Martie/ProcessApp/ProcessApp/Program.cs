@@ -16,6 +16,8 @@ namespace ProcessApp
             Console.WriteLine("====================================");
             ProcessResult resultExecution;
             resultExecution = processPerson.Run();
+            ConsoleInteratctiveMenu.ConsoleWrite("Process person", processPerson.PID.ToString());
+
 
             Console.WriteLine("------------------------------------");
             resultExecution = processPerson.Run();
@@ -25,9 +27,6 @@ namespace ProcessApp
             ProcessPersonException processPersonException = new ProcessPersonException();
             processPersonException.Run();
 
-
-            //ConsoleInteratctiveMenu mainMenu = new ConsoleInteratctiveMenu();
-            //mainMenu.RunMenu();
             Console.ReadKey();
         }
     }
