@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GeometricShapeCalculator.cs" />
     <Compile Include="Interfaces\IGeometricShape.cs" />
-    <None Include="Interfaces\IShapen.cs" />
+    <None Include="Interfaces\IShapenFlorin.cs" />
     <Compile Include="Library\ConsoleInteratctiveMenu.cs" />
     <Compile Include="Punct.cs" />
     <Compile Include="Program.cs" />

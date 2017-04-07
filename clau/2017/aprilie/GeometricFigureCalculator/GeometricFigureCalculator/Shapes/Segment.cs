@@ -14,6 +14,25 @@ namespace GeometricFigureCalculator.Shapes
 
         public Punct P2 { get; set; }
 
-        Punct[] GetAllPoints()
+        public Segment(Punct leftPoint, Punct rightPoint)
+        {
+            this.P2 = new Punct();
+
+
+            this.P1 = leftPoint;
+
+            this.P2 = rightPoint;
+        }
+
+        public Punct[] GetAllPoints()
+        {
+            Punct[] points = new Punct[2];
+
+            points[0] = this.P1;
+            points[1] = this.P2;
+
+            return points;
+        }
+
     }
 }

@@ -11,5 +11,11 @@ namespace GeometricFigureCalculator
         public int X { get; set; }
 
         public int Y { get; set; }
+
+        public Punct()
+        {
+            X = 0;
+            Y = 0;
+        }
     }
 }

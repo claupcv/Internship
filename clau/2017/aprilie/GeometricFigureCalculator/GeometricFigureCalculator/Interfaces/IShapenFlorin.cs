@@ -6,21 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeometricFigureCalculator.Interfaces
 {
-    public interface IShape
-    {
-        Corner2D[] Corners { get; }
-
-        int NumberOfCorners { get; }
-
-        string ShapeName { get; }
-
-        void ShapeRules();
-
-        Corner2D[] CreateCorners();
-
-        void DisplayCorners();
-    }
-
+    
     public class PointFlorin
     {
         public int X { get; set; }

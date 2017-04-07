@@ -8,11 +8,14 @@ namespace GeometricFigureCalculator.Library
 {
     public static class ConsoleInteratctiveMenu
     {
-        public static string ConsoleRead(string inputLabel)
+        public static void ShowPerimeterToConsole(object  shape, double shapePerimeter)
         {
-            Console.Write("{0} = ", inputLabel);
-            string inputConsole = Console.ReadLine();
-            return inputConsole;
+            Console.WriteLine("Perimeter : {0} = {1}", shape.GetType().Name, shapePerimeter);
+        }
+
+        public static void ShowSHapeCoordToConsole(object shape, double shapePerimeter)
+        {
+            Console.WriteLine("Perimeter : {0} = {1}", shape.GetType().Name, shapePerimeter);
         }
     }
 }
