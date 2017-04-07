@@ -50,6 +50,7 @@
     <Compile Include="Shapes\Square.cs" />
     <Compile Include="Shapes\Rectangle.cs" />
     <Compile Include="Shapes\Segment.cs" />
+    <Compile Include="Shapes\Trapeze.cs" />
     <Compile Include="Shapes\Triangle.cs" />
   </ItemGroup>
   <ItemGroup>

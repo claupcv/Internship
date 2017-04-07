@@ -8,12 +8,11 @@ using GeometricFigureCalculator.Library;
 
 namespace GeometricFigureCalculator.Shapes
 {
-    public class Segment : IGeometricShape
+    class Trapeze
     {
-        public Punct P1 { get; set; }
-
-        public Punct P2 { get; set; }
-
-        Punct[] GetAllPoints()
+        Punct P1 { get; set; }
+        Punct P2 { get; set; }
+        Punct P3 { get; set; }
+        Punct P4 { get; set; }
     }
 }
