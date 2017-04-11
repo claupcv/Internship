@@ -30,6 +30,12 @@ namespace GeometricFigureCalculator.Shapes
             this.P2.X = topLeft.X + width;
             this.P2.Y = topLeft.Y;
 
+            this.P2 = new Punct 
+            { 
+                X = topLeft.X + width, 
+                Y = topLeft.Y 
+            };
+
             this.P3.X = topLeft.X + width;
             this.P3.Y = topLeft.Y + heigth;
 

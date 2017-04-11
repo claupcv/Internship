@@ -26,12 +26,8 @@ namespace GeometricFigureCalculator.Shapes
 
         public Punct[] GetAllPoints()
         {
-            Punct[] points = new Punct[2];
-
-            points[0] = this.P1;
-            points[1] = this.P2;
-
-            return points;
+            
+            return new[] { this.P1, this.P2 };
         }
 
     }

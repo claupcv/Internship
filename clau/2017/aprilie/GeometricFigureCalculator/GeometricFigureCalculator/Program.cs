@@ -13,6 +13,9 @@ namespace GeometricFigureCalculator
     {
         static void Main(string[] args)
         {
+
+            GeometricShapeCalculator.TestIfArrayImplementsICollectionFlorin();
+
             Punct punct = new Punct();
 
             Punct punct2 = new Punct();
