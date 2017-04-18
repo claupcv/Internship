@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Generics
 {
     class ElementFinder<T>
+        where T: IEquatable<T>
     {
         private readonly T[] elements;
 
