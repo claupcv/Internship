@@ -8,101 +8,49 @@ namespace ProcessApp
 {
     public class ProcessString : ProcessFlow
     {
-        protected override bool StatusFlag { get; set; }
-
-        protected override string ErrorSuccesCode { get; set; }
-
         private string Text { get; set; }
+        private string Label { get; set; }
 
         public ProcessString()
+            : this("", "")
         {
-            this.StatusFlag = true;
-            this.ErrorSuccesCode = string.Empty;
+
+        }
+        public ProcessString(string labelText)
+            : this("", "")
+        {
+
         }
 
-
-        public string this[string propertyName]
+        public ProcessString(string labelText, string text)
         {
-            get
-            {
-                if (!string.IsNullOrWhiteSpace(propertyName))
-                {
-                    switch (propertyName.ToUpper())
-                    {
-                        case "TEXT":
-                            return this.Text;
-                    }
-                }
-                return null;
-            }
-            set
-            {
-                if (!string.IsNullOrWhiteSpace(propertyName))
-                {
-                    switch (propertyName.ToUpper())
-                    {
-                        case "TEXT":
-                            this.Text = value;
-                            break;
-                    }
-                }
-            }
+            this.Label = labelText;
+            this.Text = text;
         }
 
-        public override void OutputToConsole(string textOutput)
+        public override void ValidationProcess(ProcessResult processResult)
         {
-            Console.WriteLine("Result : {0} - PID : {1}", textOutput.ToString(), this.PID);
-        }
-
-        public override void ConsoleInputVerifyInputValue(Person person, string inputLabel, string type)
-        {
-            Console.Write("Input data:{0} = ", inputLabel);
-            string inputConsole = Console.ReadLine();
-            this[inputLabel] = inputConsole;
-
-            if (string.IsNullOrEmpty(inputConsole))
+            if (string.IsNullOrEmpty(this.Text))
             {
-                StatusFlag = false;
-                this.ErrorSuccesCode = ErrorCodes.TextEmpty.ToString();
+                processResult.StatusFlag = false;
+                processResult.ErrorSuccesCode = ErrorCodes.TextEmpty.ToString();
             }
-            else if (string.IsNullOrWhiteSpace(inputConsole))
+            else if (string.IsNullOrWhiteSpace(this.Text))
             {
-                StatusFlag = false;
-                this.ErrorSuccesCode = ErrorCodes.WhitespacesOnlyText.ToString();
-            }
-            else if (type == "int")
-            {
-                int num;
-                if (int.TryParse(inputConsole, out num) != true)
-                {
-                    StatusFlag = false;
-                    this.ErrorSuccesCode = ErrorCodes.NotNumber.ToString();
-                }
+                processResult.StatusFlag = false;
+                processResult.ErrorSuccesCode = ErrorCodes.WhitespacesOnlyText.ToString();
             }
             else
             {
-                StatusFlag = true;
-                this.ErrorSuccesCode = ErrorCodes.TextOK.ToString();
+                processResult.StatusFlag = true;
+                processResult.ErrorSuccesCode = ErrorCodes.GoodString.ToString();
             }
         }
 
-        public override void Run(Person person, string inputField, string type)
+        public override void ProcessingProcess(ProcessResult processResult)
         {
-
-            Console.WriteLine("PROCESS STRING");
-
-            this.ConsoleInputVerifyInputValue(null, inputField, type);
-            if (this.StatusFlag == true)
-            {
-                this.OutputToConsole(this[inputField]);
-            }
-            this.ErrorSuccesMessage(this.ErrorSuccesCode.ToString());
-
+            ConsoleInteratctiveMenu.ConsoleWrite(this.Label, this.Text + " " + base.PID.ToString());
+            processResult.StatusFlag = true;
         }
-        protected override void ErrorSuccesMessage(string errorCodeHandling)
-        {
-            Console.WriteLine(errorCodeHandling.ToString());
-        }
-
     }
 }

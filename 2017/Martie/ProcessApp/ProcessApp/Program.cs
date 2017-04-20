@@ -7,19 +7,26 @@ namespace ProcessApp
     {
         static void Main(string[] args)
         {
-            ProcessString processString = new ProcessString();
-            //processString.Run(null, "Text", FieldType.String.ToString());
+            //ConsoleInteratctiveMenu.ConsoleRead(labelInput);
+            //ProcessString processString = new ProcessString("String","Testing String!!!");
+            //ProcessResult resultExecution = processString.Run();
+            //resultExecution.ErrorSuccesMessage();
+
+            ProcessPerson processPerson = new ProcessPerson();
+            Console.WriteLine("====================================");
+            ProcessResult resultExecution;
+            resultExecution = processPerson.Run();
+            ConsoleInteratctiveMenu.ConsoleWrite("Process person", processPerson.PID.ToString());
 
 
-            //ProcessPerson processPerson = new ProcessPerson();
-            //processPerson.Run(new Person(), "", "");
+            Console.WriteLine("------------------------------------");
+            resultExecution = processPerson.Run();
+            resultExecution.ErrorSuccesMessage();
 
-            //ProcessPersonException processPersonException = new ProcessPersonException();
-            //processPersonException.Run(new Person(), "", "");
+            Console.WriteLine("====================================");
+            ProcessPersonException processPersonException = new ProcessPersonException();
+            processPersonException.Run();
 
-
-            //ConsoleInteratctiveMenu mainMenu = new ConsoleInteratctiveMenu();
-            //mainMenu.RunMenu();
             Console.ReadKey();
         }
     }

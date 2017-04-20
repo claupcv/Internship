@@ -3,55 +3,18 @@ using System;
 
 namespace ProcessApp
 {
-    class ConsoleInteratctiveMenu
+    public static class ConsoleInteratctiveMenu
     {
-        private void DisplayMainMenuOptions()
+        public static string ConsoleRead(string inputLabel)
         {
-            Console.Clear();
-
-            ConsoleHelper.WriteMenuWithOptions(
-            "Main Menu",
-            new[] 
-            {
-                "For exercises with vectors, type 'vector'",
-                "For exercises with matrixes, type 'matrix'",
-                "To exit, type 'exit'"
-            });
-
+            Console.Write("Input data:{0} = ", inputLabel);
+            string inputConsole = Console.ReadLine();
+            return inputConsole;           
         }
 
-        private void ReadAndHandleMainMenuOption()
+        public static void ConsoleWrite(string label, string text)
         {
-            while (true)
-            {
-                Console.Write("Please enter your option: ");
-
-                string input = Console.ReadLine();
-
-                if (string.Equals(input, "1", StringComparison.OrdinalIgnoreCase))
-                {
-                    //this.PromptVectorMenu();
-                    //this.ReadAndHandleVectorMenuOption();
-                }
-
-                if (string.Equals(input, "matrix", StringComparison.OrdinalIgnoreCase))
-                {
-                    //this.PromptMatrixMenu();
-                    //this.ReadAndHandleMatrixMenuOption();
-                }
-
-                if (string.Equals(input, "exit", StringComparison.OrdinalIgnoreCase))
-                {
-                    break;
-                }
-            }
-        }
-
-        public void RunMenu()
-        {
-            this.DisplayMainMenuOptions();
-
-            this.ReadAndHandleMainMenuOption();
+            Console.WriteLine("{0} = {1}", label, text);
         }
     }
 }

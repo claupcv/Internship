@@ -8,90 +8,72 @@ namespace ProcessApp
 {
     public class ProcessPerson : ProcessFlow
     {
-        public static int populationCount = 0;
-
-        protected override bool StatusFlag { get; set; }
-
-        protected override string ErrorSuccesCode { get; set; }
+        public Person person;
 
         public ProcessPerson()
         {
-            this.StatusFlag = true;
-            this.ErrorSuccesCode = string.Empty;
+
         }
 
-        public override void ConsoleInputVerifyInputValue(Person person, string inputLabel, string type)
+        public override void ValidationProcess(ProcessResult processResult)
         {
-
-            Console.Write("Input data:{0} = ", inputLabel);
-            string inputConsole = Console.ReadLine();
-            int num;
-            if (string.IsNullOrEmpty(inputConsole))
+            person = new Person();
+            if (this.person == null)
             {
-                StatusFlag = false;
-                this.ErrorSuccesCode = ErrorCodes.TextEmpty.ToString();
-            }
-            else if (string.IsNullOrWhiteSpace(inputConsole))
-            {
-                StatusFlag = false;
-                this.ErrorSuccesCode = ErrorCodes.WhitespacesOnlyText.ToString();
-            }
-            else if (type.ToUpper() == "INT" && int.TryParse(inputConsole, out num) != true)
-            {
-                StatusFlag = false;
-                this.ErrorSuccesCode = ErrorCodes.NotNumber.ToString();
+                processResult.StatusFlag = false;
+                processResult.ErrorSuccesCode = ErrorCodes.NullInstance.ToString();
             }
             else
             {
-                StatusFlag = true;
-                this.ErrorSuccesCode = ErrorCodes.TextOK.ToString();
+                processResult.StatusFlag = true;
+                processResult.ErrorSuccesCode = ErrorCodes.GoodString.ToString();
             }
-            if (StatusFlag == true)
-            {
-                person[inputLabel] = inputConsole;
-            }
-
         }
 
-        public override void OutputToConsole(string textOutput)
+        public override void PreProcessingProcess(ProcessResult processResult)
         {
-            Console.WriteLine("Person NO. : {0} - PID : {1}", textOutput.ToString(), this.PID);
+            //Verificare la Intrare
+            this.person.FirstName = ConsoleInteratctiveMenu.ConsoleRead("FirstName");
+            this.person.LastName = ConsoleInteratctiveMenu.ConsoleRead("LastName");
+            this.person.Age = Convert.ToInt32(ConsoleInteratctiveMenu.ConsoleRead("Age"));
+            //person = new Person(firstName, lastName, age);
+        }
+        public override void ProcessingProcess(ProcessResult processResult)
+        {
+
+
+            ProcessString processStringFirstName = new ProcessString("FirstName", this.person.FirstName);
+            ProcessResult resultExecutionFirstName = processStringFirstName.Run();
+            resultExecutionFirstName.ErrorSuccesMessage();
+
+            ProcessString processStringLastName = new ProcessString("LastName", this.person.LastName);
+            ProcessResult resultExecutionLastName = processStringLastName.Run();
+            resultExecutionLastName.ErrorSuccesMessage();
+
+            ProcessString processStringAge = new ProcessString("Age", this.person.Age.ToString());
+            ProcessResult resultExecutionAge = processStringAge.Run();
+            resultExecutionAge.ErrorSuccesMessage();
+
+            if (string.IsNullOrEmpty(this.person.FirstName) || string.IsNullOrEmpty(this.person.LastName) || string.IsNullOrEmpty(this.person.Age.ToString()))
+            {
+                processResult.StatusFlag = false;
+                processResult.ErrorSuccesCode = ErrorCodes.TextEmpty.ToString();
+            }
+            else if (string.IsNullOrWhiteSpace(this.person.FirstName) || string.IsNullOrWhiteSpace(this.person.LastName) || string.IsNullOrWhiteSpace(this.person.Age.ToString()))
+            {
+                processResult.StatusFlag = false;
+                processResult.ErrorSuccesCode = ErrorCodes.WhitespacesOnlyText.ToString();
+            }
+            else
+            {
+                processResult.StatusFlag = true;
+                processResult.ErrorSuccesCode = ErrorCodes.GoodString.ToString();
+            }`
         }
 
-
-        public override void Run(Person person, string inputField, string type)
+        public override void PostProcessingProcess(ProcessResult processResult)
         {
-            Console.WriteLine("PROCESS PERSON");
-            //person = null;
-            if (person == null)
-            {
-                this.StatusFlag = false;
-                this.ErrorSuccesCode = ErrorCodes.NullInstance.ToString();
-            }
-
-            if (this.StatusFlag == true)
-            {
-                this.ConsoleInputVerifyInputValue(person, "FirstName", FieldType.String.ToString());
-            }
-            if (this.StatusFlag == true)
-            {
-                this.ConsoleInputVerifyInputValue(person, "LastName", FieldType.String.ToString());
-            }
-            if (this.StatusFlag == true)
-            {
-                this.ConsoleInputVerifyInputValue(person, "Age", FieldType.Int.ToString());
-            }
-
-            if (this.StatusFlag == true)
-            {
-                OutputToConsole(Person.populationCount.ToString());
-            }
-            this.ErrorSuccesMessage(this.ErrorSuccesCode.ToString());
-        }
-
-        protected override void ErrorSuccesMessage(string errorCodeHandling)
-        {
-            Console.WriteLine(errorCodeHandling.ToString());
+            ConsoleInteratctiveMenu.ConsoleWrite("Person NO. ", Person.populationCount.ToString() + " " + base.PID.ToString());
         }
     }
 }

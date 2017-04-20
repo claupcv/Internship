@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace ProcessApp
 {
-    class ProcessResult
+    public class ProcessResult
     {
-        public bool StatusFlag { get; private set; }
-        
-        public string ErrorSuccesCode { get; private set; }
+        public bool StatusFlag;
+
+        public string ErrorSuccesCode;
 
         public ProcessResult()
         {
-            StatusFlag = false;
+            StatusFlag = true;
             ErrorSuccesCode = string.Empty;
+        }
+
+        public void ErrorSuccesMessage()
+        {
+            Console.WriteLine(this.ErrorSuccesCode);
         }
 
     }
