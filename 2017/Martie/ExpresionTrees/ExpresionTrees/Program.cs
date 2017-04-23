@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OverloadedOperators
+namespace ExpresionTrees
 {
-    class GetHashCodeClass
+    class Program
     {
+        static void Main(string[] args)
+        {
 
+        }
     }
 }
