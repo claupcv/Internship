@@ -1,0 +1,15 @@
+D:\Work\dev\csharp\CSharpDotNetLearning\CSharpDotNetLearning\bin\Debug\CSharpDotNetLearning.exe.config
+D:\Work\dev\csharp\CSharpDotNetLearning\CSharpDotNetLearning\bin\Debug\CSharpDotNetLearning.exe
+D:\Work\dev\csharp\CSharpDotNetLearning\CSharpDotNetLearning\bin\Debug\CSharpDotNetLearning.pdb
+D:\Work\dev\csharp\CSharpDotNetLearning\CSharpDotNetLearning\obj\Debug\CSharpDotNetLearning.exe
+D:\Work\dev\csharp\CSharpDotNetLearning\CSharpDotNetLearning\obj\Debug\CSharpDotNetLearning.pdb
+D:\Work\dev\csharp\CSharpDotNetLearning\CSharpDotNetLearning\obj\Debug\CSharpDotNetLearning.csprojResolveAssemblyReference.cache
+D:\Work\dev\csharp\trencadis\github\intership\2017\februarie\CSharpDotNetLearning\CSharpDotNetLearning\bin\Debug\CSharpDotNetLearning.exe.config
+D:\Work\dev\csharp\trencadis\github\intership\2017\februarie\CSharpDotNetLearning\CSharpDotNetLearning\obj\Debug\CSharpDotNetLearning.exe
+D:\Work\dev\csharp\trencadis\github\intership\2017\februarie\CSharpDotNetLearning\CSharpDotNetLearning\obj\Debug\CSharpDotNetLearning.pdb
+D:\Work\dev\csharp\trencadis\github\intership\2017\februarie\CSharpDotNetLearning\CSharpDotNetLearning\obj\Debug\CSharpDotNetLearning.csprojResolveAssemblyReference.cache
+D:\Work\dev\csharp\trencadis\github\intership\2017\februarie\CSharpDotNetLearning\CSharpDotNetLearning\bin\Debug\CSharpDotNetLearning.exe
+D:\Work\dev\csharp\trencadis\github\intership\2017\februarie\CSharpDotNetLearning\CSharpDotNetLearning\bin\Debug\CSharpDotNetLearning.pdb
+D:\Work\dev\csharp\trencadis\github\intership\clau\2017\februarie\CSharpDotNetLearning\CSharpDotNetLearning\bin\Debug\CSharpDotNetLearning.exe.config
+D:\Work\dev\csharp\trencadis\github\intership\clau\2017\februarie\CSharpDotNetLearning\CSharpDotNetLearning\obj\Debug\CSharpDotNetLearning.exe
+D:\Work\dev\csharp\trencadis\github\intership\clau\2017\februarie\CSharpDotNetLearning\CSharpDotNetLearning\obj\Debug\CSharpDotNetLearning.pdb

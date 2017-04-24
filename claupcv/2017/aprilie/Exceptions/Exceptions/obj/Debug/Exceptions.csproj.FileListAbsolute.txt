@@ -1,0 +1,6 @@
+d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Exceptions\Exceptions\bin\Debug\Exceptions.exe.config
+d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Exceptions\Exceptions\obj\Debug\Exceptions.csprojResolveAssemblyReference.cache
+d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Exceptions\Exceptions\bin\Debug\Exceptions.exe
+d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Exceptions\Exceptions\bin\Debug\Exceptions.pdb
+d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Exceptions\Exceptions\obj\Debug\Exceptions.exe
+d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Exceptions\Exceptions\obj\Debug\Exceptions.pdb

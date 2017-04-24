@@ -1,0 +1,15 @@
+D:\Work\dev\HelloWorld\HelloWorld\bin\Debug\HelloWorld.exe.config
+D:\Work\dev\HelloWorld\HelloWorld\bin\Debug\HelloWorld.exe
+D:\Work\dev\HelloWorld\HelloWorld\bin\Debug\HelloWorld.pdb
+D:\Work\dev\HelloWorld\HelloWorld\obj\Debug\HelloWorld.csprojResolveAssemblyReference.cache
+D:\Work\dev\HelloWorld\HelloWorld\obj\Debug\HelloWorld.exe
+D:\Work\dev\HelloWorld\HelloWorld\obj\Debug\HelloWorld.pdb
+D:\Work\dev\csharp\HelloWorld\HelloWorld\bin\Debug\HelloWorld.exe.config
+D:\Work\dev\csharp\HelloWorld\HelloWorld\obj\Debug\HelloWorld.exe
+D:\Work\dev\csharp\HelloWorld\HelloWorld\obj\Debug\HelloWorld.pdb
+D:\Work\dev\csharp\HelloWorld\HelloWorld\bin\Debug\HelloWorld.exe
+D:\Work\dev\csharp\HelloWorld\HelloWorld\bin\Debug\HelloWorld.pdb
+D:\Work\dev\csharp\HelloWorld\HelloWorld\obj\Debug\HelloWorld.csprojResolveAssemblyReference.cache
+D:\Work\dev\csharp\trencadis\github\intership\clau\2017\ianuarie\HelloWorld\HelloWorld\bin\Debug\HelloWorld.exe.config
+D:\Work\dev\csharp\trencadis\github\intership\clau\2017\ianuarie\HelloWorld\HelloWorld\obj\Debug\HelloWorld.exe
+D:\Work\dev\csharp\trencadis\github\intership\clau\2017\ianuarie\HelloWorld\HelloWorld\obj\Debug\HelloWorld.pdb

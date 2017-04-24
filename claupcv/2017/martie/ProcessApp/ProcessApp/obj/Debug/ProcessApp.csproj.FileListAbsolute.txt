@@ -1,0 +1,6 @@
+D:\Work\dev\csharp\trencadis\github\intership\2017\Martie\ProcessApp\ProcessApp\bin\Debug\ProcessApp.exe.config
+D:\Work\dev\csharp\trencadis\github\intership\2017\Martie\ProcessApp\ProcessApp\obj\Debug\ProcessApp.csprojResolveAssemblyReference.cache
+D:\Work\dev\csharp\trencadis\github\intership\2017\Martie\ProcessApp\ProcessApp\bin\Debug\ProcessApp.exe
+D:\Work\dev\csharp\trencadis\github\intership\2017\Martie\ProcessApp\ProcessApp\bin\Debug\ProcessApp.pdb
+D:\Work\dev\csharp\trencadis\github\intership\2017\Martie\ProcessApp\ProcessApp\obj\Debug\ProcessApp.exe
+D:\Work\dev\csharp\trencadis\github\intership\2017\Martie\ProcessApp\ProcessApp\obj\Debug\ProcessApp.pdb
