@@ -16,26 +16,34 @@ namespace Delegates
             return a1 + a2 + a3;
         }
 
+		public static void DelegatesExamples()
+		{
+			//instanciate the class
+			DelegateExample classInstance = new DelegateExample();
+			//classInstance.AddNum(10, 5);
+
+			//add methods to new instance of delegates
+			AddNumDelegate adD = classInstance.AddNum;
+			adD += classInstance.DiffNum;
+			SayHelloDelegate say = new SayHelloDelegate(DelegateExample.SayHello);
+
+			adD.Invoke(5, 6);
+			string str = say("PCV");
+
+
+			str = DelegateExample.SayHello("PCV");
+			Console.WriteLine(str);
+		}
+
         public static void Main(string[] args)
         {
-
-            Person person = new Person();
+			
+			Person person = new Person();
             person.Run();
-
-            Console.WriteLine("================================");
-            DelegateExample delegateExample = new DelegateExample();
-            delegateExample.AddNum(10, 5);
-
-
-            AddNumDelegate adD = new AddNumDelegate(delegateExample.AddNum );
-            SayHelloDelegate say = new SayHelloDelegate(DelegateExample.SayHello);
-            string str = say("PCV"); 
-            
-
-            str = DelegateExample.SayHello("PCV");
-            Console.WriteLine(str);
-
-            Console.WriteLine("================================");
+			
+			Console.WriteLine("================================");
+			Program.DelegatesExamples();
+			Console.WriteLine("================================");
 
             // ...
             // si apoi undeva in codul aplicatiei

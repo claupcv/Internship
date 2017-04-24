@@ -12,9 +12,13 @@ namespace Delegates
     {
         public void AddNum(int a , int b)
         {
-            Console.WriteLine(a+b);
+            Console.WriteLine($"add : {a+b}");
         }
-        public  static string SayHello(string name)
+		public void DiffNum(int a, int b)
+		{
+			Console.WriteLine($"diff : {a - b}");
+		}
+		public  static string SayHello(string name)
         {
             return "Hello " + name;
         }
