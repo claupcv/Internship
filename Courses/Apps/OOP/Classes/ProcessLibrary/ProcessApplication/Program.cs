@@ -13,7 +13,7 @@ namespace ProcessApplication
         return;
       }
 
-      Console.WriteLine("{0} - PID = {1}", p.GetType(), p.PID);
+      Console.WriteLine($"{p.GetType()} - PID = {p.PID}");
     }
 
     private static void WriteProcessResult(ProcessResult result)
@@ -24,7 +24,7 @@ namespace ProcessApplication
         return;
       }
 
-      Console.WriteLine("Process result: success = {0}, errorCode = {1}", result.WasSuccessfull, result.ErrorCode);
+      Console.WriteLine($"Process result: success = {result.WasSuccessfull}, errorCode = {result.ErrorCode}");
     }
 
     private static void WriteSeparator()

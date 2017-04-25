@@ -25,14 +25,7 @@ namespace Delegates
 			//add methods to new instance of delegates
 			AddNumDelegate adD = classInstance.AddNum;
 			adD += classInstance.DiffNum;
-			SayHelloDelegate say = new SayHelloDelegate(DelegateExample.SayHello);
-
-			adD.Invoke(5, 6);
-			string str = say("PCV");
-
-
-			str = DelegateExample.SayHello("PCV");
-			Console.WriteLine(str);
+			adD.Invoke(5, 6);			
 		}
 
         public static void Main(string[] args)
