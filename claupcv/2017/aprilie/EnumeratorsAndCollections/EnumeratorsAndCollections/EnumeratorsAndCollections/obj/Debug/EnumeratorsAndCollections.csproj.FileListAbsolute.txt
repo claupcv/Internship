@@ -1,0 +1,6 @@
+d:\Work\dev\csharp\trencadis\github\claupcv-intership\claupcv\2017\aprilie\EnumeratorsAndCollections\EnumeratorsAndCollections\EnumeratorsAndCollections\bin\Debug\EnumeratorsAndCollections.exe.config
+d:\Work\dev\csharp\trencadis\github\claupcv-intership\claupcv\2017\aprilie\EnumeratorsAndCollections\EnumeratorsAndCollections\EnumeratorsAndCollections\bin\Debug\EnumeratorsAndCollections.exe
+d:\Work\dev\csharp\trencadis\github\claupcv-intership\claupcv\2017\aprilie\EnumeratorsAndCollections\EnumeratorsAndCollections\EnumeratorsAndCollections\bin\Debug\EnumeratorsAndCollections.pdb
+d:\Work\dev\csharp\trencadis\github\claupcv-intership\claupcv\2017\aprilie\EnumeratorsAndCollections\EnumeratorsAndCollections\EnumeratorsAndCollections\obj\Debug\EnumeratorsAndCollections.csprojResolveAssemblyReference.cache
+d:\Work\dev\csharp\trencadis\github\claupcv-intership\claupcv\2017\aprilie\EnumeratorsAndCollections\EnumeratorsAndCollections\EnumeratorsAndCollections\obj\Debug\EnumeratorsAndCollections.exe
+d:\Work\dev\csharp\trencadis\github\claupcv-intership\claupcv\2017\aprilie\EnumeratorsAndCollections\EnumeratorsAndCollections\EnumeratorsAndCollections\obj\Debug\EnumeratorsAndCollections.pdb

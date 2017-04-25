@@ -28,20 +28,35 @@ namespace Delegates
 			adD.Invoke(5, 6);			
 		}
 
+		public static void GetDelegateAreaAndPerimeter()
+		{
+			//instanciate the class
+			DelegateExample classInstance = new DelegateExample();
+
+			AreaAndPerimeterDelegate delegateAreaPerimiterer = classInstance.GetArea;
+			delegateAreaPerimiterer = delegateAreaPerimiterer + classInstance.GetPerimeter;
+
+			double value = delegateAreaPerimiterer.Invoke(5, 8);
+
+			Console.WriteLine($"Value return delegate : {value} ");
+
+		}
+
         public static void Main(string[] args)
         {
 			
 			Person person = new Person();
             person.Run();
-			
+
+			Console.WriteLine("================================");
+			Program.GetDelegateAreaAndPerimeter();
+			Console.WriteLine("================================");
+
 			Console.WriteLine("================================");
 			Program.DelegatesExamples();
 			Console.WriteLine("================================");
 
-            // ...
-            // si apoi undeva in codul aplicatiei
-            // ...
-
+    
             // define some observers
             var observer1 = new IntegerCollectionChangeObserver("observer 1");
             var observer2 = new IntegerCollectionChangeObserver("observer 2");

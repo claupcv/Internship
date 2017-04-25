@@ -48,6 +48,7 @@ public class ObservableIntegerCollection
   	// triggered when a handler is removed
   	this.collectionEvent -= value;
 	}
+
   }
  
   public void Add(int element)
