@@ -25,6 +25,8 @@ namespace Delegates
 			//add methods to new instance of delegates
 			AddNumDelegate adD = classInstance.AddNum;
 			adD += classInstance.DiffNum;
+
+			// call the delegate
 			adD.Invoke(5, 6);			
 		}
 

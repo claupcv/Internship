@@ -37,7 +37,7 @@ public class ObservableIntegerCollection
  
   // public event accessor (like properties)
   public event OnCollectionEvent OnCollectionEvent
-  {
+  {			
 	add
 	{
   	// triggered when a handler is attached
