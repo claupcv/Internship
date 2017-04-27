@@ -1,0 +1,6 @@
+D:\Csharp\trencadis\github\claupcv-intership\claupcv\2017\aprilie\Curs25apr\Curs25apr\obj\Debug\Curs25apr.csprojResolveAssemblyReference.cache
+D:\Csharp\trencadis\github\claupcv-intership\claupcv\2017\aprilie\Curs25apr\Curs25apr\bin\Debug\Curs25apr.exe.config
+D:\Csharp\trencadis\github\claupcv-intership\claupcv\2017\aprilie\Curs25apr\Curs25apr\bin\Debug\Curs25apr.exe
+D:\Csharp\trencadis\github\claupcv-intership\claupcv\2017\aprilie\Curs25apr\Curs25apr\bin\Debug\Curs25apr.pdb
+D:\Csharp\trencadis\github\claupcv-intership\claupcv\2017\aprilie\Curs25apr\Curs25apr\obj\Debug\Curs25apr.exe
+D:\Csharp\trencadis\github\claupcv-intership\claupcv\2017\aprilie\Curs25apr\Curs25apr\obj\Debug\Curs25apr.pdb
