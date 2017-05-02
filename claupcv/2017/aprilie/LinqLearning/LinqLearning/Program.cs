@@ -146,17 +146,16 @@ namespace LinqLearning
 		private static void SelectManyWithExtensionsConcatenarea2Stringuri()
 		{
 			int[] set1 = new[] { 1, 4, 5, 3, 8, 9 };
-			int[] set2 = new[] { 2, 6, 9, 3 };
-
-
+			int[] set2 = new[] { 2, 6, 11, 10 };
 
 			var result = set1.SelectMany(
 								e1 => set2,
 								(e1, e2) => new Tuple<int, int>(e1, e2))
 							  .Where(
-								tuple => (tuple.Item1 == tuple.Item2 - 1) ||
-										  (tuple.Item1 == tuple.Item2 + 1))
+								tuple => (tuple.Item1 >5) )
 							  .Select(tuple => $"{tuple.Item1}{tuple.Item2}");
+
+			Console.Write("SelectManyWithExtensionsConcatenarea2Stringuri : ");
 
 			foreach (string e in result)
 			{
