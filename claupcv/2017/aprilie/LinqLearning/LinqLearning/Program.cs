@@ -108,8 +108,13 @@ namespace LinqLearning
 			Console.WriteLine("===============================================================");
 
 
+            ReturnElementsOperators.ReturnFirstOrDefaultOperator();
+            Console.WriteLine("===============================================================");
 
-			Console.ReadKey();
+            ReturnElementsOperators.ReturnElementAtOperator();
+            Console.WriteLine("===============================================================");
+
+            Console.ReadKey();
 		}
 	}
 }

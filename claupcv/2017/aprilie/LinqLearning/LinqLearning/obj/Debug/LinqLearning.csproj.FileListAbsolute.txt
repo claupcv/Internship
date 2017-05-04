@@ -10,3 +10,9 @@ D:\Csharp\trencadis\github\claupcv-intership\claupcv\2017\aprilie\LinqLearning\L
 D:\Csharp\trencadis\github\claupcv-intership\claupcv\2017\aprilie\LinqLearning\LinqLearning\obj\Debug\LinqLearning.csprojResolveAssemblyReference.cache
 D:\Csharp\trencadis\github\claupcv-intership\claupcv\2017\aprilie\LinqLearning\LinqLearning\obj\Debug\LinqLearning.exe
 D:\Csharp\trencadis\github\claupcv-intership\claupcv\2017\aprilie\LinqLearning\LinqLearning\obj\Debug\LinqLearning.pdb
+d:\clau\Csharp\trencadis\github\intership\claupcv-intership\claupcv\2017\aprilie\LinqLearning\LinqLearning\obj\Debug\LinqLearning.csprojResolveAssemblyReference.cache
+d:\clau\Csharp\trencadis\github\intership\claupcv-intership\claupcv\2017\aprilie\LinqLearning\LinqLearning\obj\Debug\LinqLearning.exe
+d:\clau\Csharp\trencadis\github\intership\claupcv-intership\claupcv\2017\aprilie\LinqLearning\LinqLearning\obj\Debug\LinqLearning.pdb
+d:\clau\Csharp\trencadis\github\intership\claupcv-intership\claupcv\2017\aprilie\LinqLearning\LinqLearning\bin\Debug\LinqLearning.exe.config
+d:\clau\Csharp\trencadis\github\intership\claupcv-intership\claupcv\2017\aprilie\LinqLearning\LinqLearning\bin\Debug\LinqLearning.exe
+d:\clau\Csharp\trencadis\github\intership\claupcv-intership\claupcv\2017\aprilie\LinqLearning\LinqLearning\bin\Debug\LinqLearning.pdb
