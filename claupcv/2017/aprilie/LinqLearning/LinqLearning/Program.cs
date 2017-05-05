@@ -48,7 +48,34 @@ namespace LinqLearning
 			return persons;
 		}
 
-		
+
+		public static Department[] CreateMultipleDepartments()
+		{
+			var departments = new[]
+			{
+			  new Department { Id = 1, Name = "Administrative" },
+			  new Department { Id = 2, Name = "HR" },
+			  new Department { Id = 3, Name = "Financial" },
+			  new Department { Id = 4, Name = "Programming" }
+			};
+
+			return departments;
+		}
+
+		public static Employee[] CreateMultipleEmployees()
+		{
+			var employees = new[]
+			{
+			  new Employee { Id = 1, Name = "John Doe", DepartmentId = 1 },
+			  new Employee { Id = 2, Name = "Henry Joe", DepartmentId = 2 },
+			  new Employee { Id = 3, Name = "Marry Joe", DepartmentId = 3 },
+			  new Employee { Id = 4, Name = "Bill Smith", DepartmentId = 4 },
+			  new Employee { Id = 5, Name = "Lisa Davis", DepartmentId = 4 },
+			};
+
+			return employees;
+		}
+
 		static void Main(string[] args)
 		{
 			FilteringOperators.PersonNONLinqExample();
@@ -114,7 +141,35 @@ namespace LinqLearning
             ReturnElementsOperators.ReturnElementAtOperator();
             Console.WriteLine("===============================================================");
 
-            Console.ReadKey();
+
+			QuantifiersOperators.AnyOperator();
+			Console.WriteLine("===============================================================");
+
+			QuantifiersOperators.AllOperator();
+			Console.WriteLine("===============================================================");
+
+
+			EqualitySequences.EqualitySequencesMethod();
+			Console.WriteLine("===============================================================");
+
+
+			JoinStatement.JoinStatementMethod();
+			Console.WriteLine("===============================================================");
+
+			JoinStatement.JoinStatementWEithExtensions();
+			Console.WriteLine("===============================================================");
+
+			JoinStatement.GroupJoinStatementMethod();
+			Console.WriteLine("===============================================================");
+
+
+			ConversionFunctions.AsEnumerableMethod();
+			Console.WriteLine("===============================================================");
+
+			ConversionFunctions.CastMethod();
+			Console.WriteLine("===============================================================");
+
+			Console.ReadKey();
 		}
 	}
 }

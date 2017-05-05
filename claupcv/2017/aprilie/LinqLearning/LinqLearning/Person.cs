@@ -14,7 +14,6 @@ namespace LinqLearning
 
 		public DateTime DateOfBirth { get; set; } = DateTime.MinValue;
 
-
 	}
 
 }

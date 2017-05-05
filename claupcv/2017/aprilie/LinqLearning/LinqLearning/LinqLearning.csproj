@@ -42,10 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConversionFunctions.cs" />
     <Compile Include="DataCollectionOperator.cs" />
+    <Compile Include="Department.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="EqualitySequences.cs" />
     <Compile Include="FilteringOperators.cs" />
     <Compile Include="GroupingOperator.cs" />
+    <Compile Include="JoinStatement.cs" />
     <Compile Include="PartitioningOperators.cs" />
+    <Compile Include="QuantifiersOperators.cs" />
     <Compile Include="ReturnElementsOperators.cs" />
     <Compile Include="SelectionOperators.cs" />
     <Compile Include="Person.cs" />
