@@ -10,6 +10,8 @@ namespace LinqExcercises
 	{
 		static void Main(string[] args)
 		{
+           
+            
 		}
 	}
 }
