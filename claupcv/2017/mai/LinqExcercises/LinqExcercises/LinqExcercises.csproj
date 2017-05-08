@@ -43,7 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttendedUniversity.cs" />
+    <Compile Include="ConsoleManagement.cs" />
     <Compile Include="Course.cs" />
+    <Compile Include="DataReports.cs" />
     <Compile Include="ElementsCreator.cs" />
     <Compile Include="Grade.cs" />
     <Compile Include="Person.cs" />

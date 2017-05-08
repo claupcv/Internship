@@ -8,6 +8,6 @@ namespace LinqExcercises
 {
     public class Student : Person
     {
-        public List<int> UniversityID = new List<int>();                
+        public List<int> UniversityIDs = new List<int>();                
     }
 }

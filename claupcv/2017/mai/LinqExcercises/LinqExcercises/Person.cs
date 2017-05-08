@@ -18,11 +18,5 @@ namespace LinqExcercises
 
         public DateTime BirthDay { get; set; } = DateTime.MinValue;
     }
-
-    public ClassNamePlaceholder()
-    {
-        
-    }
-
     
 }
