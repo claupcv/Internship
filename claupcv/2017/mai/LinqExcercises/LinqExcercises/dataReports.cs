@@ -14,7 +14,7 @@ namespace LinqExcercises
 		public static IEnumerable<Person> ListOfBornPersonsByRange(Person[] persons, DateTime startDate, DateTime endDate)
 		{
 
-			if (persons == null || persons.Count() <= 0)
+			if (persons == null || persons.Length <= 0)
 			{
 				Console.WriteLine("NullOrEmptyPersons");
 				return null;
@@ -37,7 +37,7 @@ namespace LinqExcercises
 
 		public static IEnumerable<Student> ListOfAllStudents(Person[] persons)
 		{
-			if (persons == null || persons.Count() <= 0)
+			if (persons == null || persons.Length <= 0)
 			{
 				Console.WriteLine("NullOrEmptyStudents");
 				return null;
@@ -45,13 +45,13 @@ namespace LinqExcercises
 
 			Console.WriteLine($"[List of all students]");
 			var allStudents = persons.OfType<Student>()
-				.Where(pers => (pers.UniversityID != null));
+				.Where(pers => (pers.AtendedUniversityIDs != null));
 			return allStudents;
 		}
 
 		public static IEnumerable<Person> ListOfAllNonStudents(Person[] persons)
 		{
-			if (persons == null || persons.Count() <= 0)
+			if (persons == null || persons.Length <= 0)
 			{
 				Console.WriteLine("NullOrEmptyPersons");
 				return null;
@@ -66,7 +66,7 @@ namespace LinqExcercises
 
 		public static IEnumerable<Course> ListOfAllDistinctCourses(Course[] courses)
 		{
-			if (courses == null || courses.Count() <= 0)
+			if (courses == null || courses.Length <= 0)
 			{
 				Console.WriteLine("NullOrEmptyCourses");
 				return null;
@@ -78,38 +78,77 @@ namespace LinqExcercises
 			return allDistinctCourse;
 		}
 
-		public static IEnumerable<University> ListOfAllStudentsFromAllUniversities(University[] universities, Student[] students)
+		public static IEnumerable<Tuple<string, string>> ListOfAllStudentsFromAllUniversities
+			(University[] universities, AttendedUniversity[] attendedUniversities, Student[] students)
 		{
-			if (universities == null || universities.Count() <= 0)
+			if (universities == null || universities.Length <= 0)
 			{
 				Console.WriteLine("NullOrEmptyUniversities");
 				return null;
 			}
 
-			if (students == null || students.Count() <= 0)
+			if (attendedUniversities == null || attendedUniversities.Length <= 0)
+			{
+				Console.WriteLine("NullOrEmptyAtendedUniversities");
+				return null;
+			}
+
+			if (students == null || students.Length <= 0)
 			{
 				Console.WriteLine("NullOrEmptyStudents");
 				return null;
 			}
 
 			Console.WriteLine($"[List of all students from all univerisities]");
+
 			var allUniversitiesWithAllStudents = universities.Join(
-				students,
+
+				attendedUniversities.Join(
+					students.SelectMany(
+						student => student.AtendedUniversityIDs,
+						(student, UniversityID) => new 
+						{ student.PersonID, student.FirstName, student.LastName, UniversityID }),
+					attendedUniv => attendedUniv.AttendedUniversityID,
+					stud => stud.UniversityID,
+					(attendedUniv, student) => new
+					{
+						UniversityID = attendedUniv.UniversityID,						
+						StudentExtended = student,					
+					}),
 				univ => univ.UniversityID,
-
-
-				stud => stud.UniversityIDs.SelectMany(u => ),
-
-
-				(university, student) => new
+				attendedUniv => attendedUniv.UniversityID,
+				(attendedUniv, student ) => new
 				{
-					UniversityIDs = university.UniversityID,
-					UniversityName = university.UniversityName,
-					StudentName = student,
-					
-				}).ToArray();
+					UniversityName = attendedUniv.UniversityName,
+					StudentExtended = student,
 
-			return allUniversitiesWithAllStudents.Cast<University>();
+
+				})
+				.Select(attendedUniv => new Tuple<string, string>(
+						attendedUniv.UniversityName,
+						string.Join(", ", attendedUniv.StudentExtended.StudentExtended.
+							Select(stud => $"{stud.FirstName} {stud.LastName}"))))
+
+				.ToList();
+
+			foreach (var univ in allUniversitiesWithAllStudents)
+			{
+				Console.WriteLine($"Univeristy = {univ.Item1} has following students :{univ.Item2}");
+			}
+
+			//foreach (var univ in allUniversitiesWithAllStudents)
+			//{
+			//	var Students = string.Join(", ", univ.StudentExtended.Select(stud => $"{stud.FirstName} {stud.LastName}"));
+
+			//	if (Students.Length > 0)
+			//	{
+			//		Console.WriteLine($"Univeristy = {univ.UniversityName} has following students :{Students}");
+			//	}
+
+			//}
+
+
+			return allUniversitiesWithAllStudents;
 		}
 	}
 }

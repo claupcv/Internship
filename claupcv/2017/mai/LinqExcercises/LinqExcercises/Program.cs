@@ -14,6 +14,7 @@ namespace LinqExcercises
 			var students = DataReports.ListOfAllStudents(persons).ToArray();
 			var courses = ElementsCreator.CreateCourses();
 			var universities = ElementsCreator.CreateUniversities();
+			var attendedUniversity = ElementsCreator.CreateAtendedUniversites();
 
 
 			DateTime startDate = new DateTime(1986, 2, 10);
@@ -36,8 +37,9 @@ namespace LinqExcercises
 			ConsoleManagement.ForeachShowCoursesToConsole(allDistinctCourse);
 
 
-			var allUniversitiesWithAllStudents = DataReports.ListOfAllStudentsFromAllUniversities(universities, students);
-			ConsoleManagement.ForeachShowAllStudentsToAllUniverisites(allUniversitiesWithAllStudents);
+			var allUniversitiesWithAllStudents = DataReports.ListOfAllStudentsFromAllUniversities(university, attendedUniversity, students);
+			//nu este nevoie din cauza tipului care nus tiu cum sa il iau
+			//ConsoleManagement.ForeachShowAllStudentsToAllUniverisites(allUniversitiesWithAllStudents);
 
 
 

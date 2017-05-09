@@ -8,6 +8,18 @@ namespace LinqExcercises
 {
 	public static class ElementsCreator
 	{
+		public static DateTime? SetGraduationDate(DateTime? value)
+		{
+			if (value.HasValue)
+			{
+				return value;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
 		public static Person[] CreatePersonsAndStudents()
 		{
 			var persons = new[]
@@ -55,7 +67,17 @@ namespace LinqExcercises
 					LastName = "Doe",
 					Age = 22,
 					BirthDay = new DateTime(1985, 5, 2),
-					UniversityIDs = new List<int> {1,3,5}
+					AtendedUniversityIDs = new List<int> {1,2,3}
+				},
+
+				new Student()
+				{
+					PersonID = 12,
+					FirstName = "Jonny",
+					LastName = "Walker",
+					Age = 21,
+					BirthDay = new DateTime(1986, 9, 21),
+					AtendedUniversityIDs = new List<int> {1,2}
 				}
 
 
@@ -79,6 +101,13 @@ namespace LinqExcercises
 					UniversityID = 2,
 					UniversityName = "University of London",
 					Address = "London street 1",
+				},
+
+				new University()
+				{
+					UniversityID = 4,
+					UniversityName = "University of Paris",
+					Address = "Eifel Towe Nr. 1",
 				}
 			};
 
@@ -128,5 +157,40 @@ namespace LinqExcercises
 
 			return courses;
 		}
-    }
+
+		public static AttendedUniversity[] CreateAtendedUniversites()
+		{
+			var atendedUniveristies = new AttendedUniversity[]
+			{
+				new AttendedUniversity()
+				{
+					AttendedUniversityID = 1,
+					UniversityID = 1,					
+					RegistrationDate = new DateTime(2014, 9, 15),
+					GraduationDate =  new DateTime(2017, 6, 30),
+					GradeList = new List<int> {1,2,3},
+
+				},
+				new AttendedUniversity()
+				{
+					AttendedUniversityID = 2,
+					UniversityID = 2,
+					RegistrationDate = new DateTime(2015, 9, 15),
+					GraduationDate = SetGraduationDate(null),
+					GradeList = new List<int> {1,3},
+
+				},
+				new AttendedUniversity()
+				{
+					AttendedUniversityID = 3,
+					UniversityID = 2,					
+					RegistrationDate = new DateTime(2014, 9, 15),
+					GraduationDate = new DateTime(2016, 6, 30),
+					GradeList = new List<int> {1,3},
+				}
+
+			};
+			return atendedUniveristies;
+		}
+	}
 }

@@ -39,13 +39,15 @@ namespace LinqExcercises
 			Console.WriteLine("==================================================");
 		}
 
-		public static void ForeachShowAllStudentsToAllUniverisites(IEnumerable<University> allUniversitiesWithAllStudents)
+		public static void ForeachShowAllStudentsToAllUniverisites(IQueryable allUniversitiesWithAllStudents)
 		{
-			foreach (var univ in allUniversitiesWithAllStudents)
+			/*foreach (var univ in allUniversitiesWithAllStudents)
 			{
-				Console.WriteLine($"Course = {univ.UniversityName}; " +
-					$"UniveristyName = {univ.UniversityName};" );
-			}
+				var Students = string.Join(", ", univ.StudentExtended.Select(stud => $"{stud.FirstName} {stud.LastName}"));
+
+				Console.WriteLine($"Univeristy = {univ.UniversityName} has following students :{Students}");
+
+			}*/
 			Console.WriteLine("==================================================");
 		}
 	}

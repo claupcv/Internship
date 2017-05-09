@@ -8,16 +8,16 @@ namespace LinqExcercises
 {
     public class AttendedUniversity
     {
-        public int UniversityID { get; set; } = 0;
+		public int AttendedUniversityID { get; set; } = 0;
 
-        public int PersonID { get; set; } = 0;
-
-        public int GradesListID { get; set; } = 0;
+		public int UniversityID { get; set; } = 0;
 
         public DateTime RegistrationDate { get; set; } = DateTime.MinValue;
 
-        public DateTime? GraduationDate { get; set; } = null;
+		public DateTime? GraduationDate { get; set; } = new DateTime?();
 
-        public List<int> GradeList = new List<int> { };
-    }
+		public List<int> GradeList = new List<int> { };
+		
+	}
+	
 }

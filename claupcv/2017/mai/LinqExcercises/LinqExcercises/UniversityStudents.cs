@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace LinqExcercises
 {
-    public class Student : Person
-    {
-        public List<int> AtendedUniversityIDs = new List<int>();                
-    }
+	class UniversityStudents
+	{
+	}
 }
