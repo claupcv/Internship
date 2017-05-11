@@ -63,11 +63,11 @@ namespace LinqExcercises
 				new Student()
 				{
 					PersonID = 11,
-					FirstName = "John",
+					FirstName = "Melanie",
 					LastName = "Doe",
 					Age = 22,
 					BirthDay = new DateTime(1985, 5, 2),
-					AtendedUniversityIDs = new List<int> {1,2,3}
+					AtendedUniversityIDs = new List<int> {1,3,4}
 				},
 
 				new Student()
@@ -77,7 +77,7 @@ namespace LinqExcercises
 					LastName = "Walker",
 					Age = 21,
 					BirthDay = new DateTime(1986, 9, 21),
-					AtendedUniversityIDs = new List<int> {1,2}
+					AtendedUniversityIDs = new List<int> {2}
 				}
 
 
@@ -105,7 +105,7 @@ namespace LinqExcercises
 
 				new University()
 				{
-					UniversityID = 4,
+					UniversityID = 3,
 					UniversityName = "University of Paris",
 					Address = "Eifel Towe Nr. 1",
 				}
@@ -184,6 +184,14 @@ namespace LinqExcercises
 				{
 					AttendedUniversityID = 3,
 					UniversityID = 2,					
+					RegistrationDate = new DateTime(2014, 9, 15),
+					GraduationDate = new DateTime(2016, 6, 30),
+					GradeList = new List<int> {1,3},
+				},
+				new AttendedUniversity()
+				{
+					AttendedUniversityID = 4,
+					UniversityID = 3,
 					RegistrationDate = new DateTime(2014, 9, 15),
 					GraduationDate = new DateTime(2016, 6, 30),
 					GradeList = new List<int> {1,3},

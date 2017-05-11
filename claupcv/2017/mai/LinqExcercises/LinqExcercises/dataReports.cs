@@ -101,41 +101,45 @@ namespace LinqExcercises
 			}
 
 			Console.WriteLine($"[List of all students from all univerisities]");
-
+			
 			var allUniversitiesWithAllStudents = universities.Join(
 
 				attendedUniversities.Join(
+
 					students.SelectMany(
-						student => student.AtendedUniversityIDs,
-						(student, UniversityID) => new 
-						{ student.PersonID, student.FirstName, student.LastName, UniversityID }),
+						studentID => studentID.AtendedUniversityIDs ,
+						(student, atendedUniversityID) => new
+						{
+							PersonID = student.PersonID,
+							FirstName = student.FirstName,
+							LastName = student.LastName,
+							AtendedUniversityID = atendedUniversityID
+						}).ToList(),
+
 					attendedUniv => attendedUniv.AttendedUniversityID,
-					stud => stud.UniversityID,
-					(attendedUniv, student) => new
+					stud => stud.AtendedUniversityID,
+					(attendedUniv, stud) => new
 					{
-						UniversityID = attendedUniv.UniversityID,						
-						StudentExtended = student,					
+						UniversityID = attendedUniv.UniversityID,
+						StudentExtended = stud,
 					}),
+
 				univ => univ.UniversityID,
 				attendedUniv => attendedUniv.UniversityID,
-				(attendedUniv, student ) => new
+				(univ, attendedUniv) => new
 				{
-					UniversityName = attendedUniv.UniversityName,
-					StudentExtended = student,
-
-
+					UniversityName = univ.UniversityName,
+					StudentAtendedUniv = attendedUniv,
 				})
-				.Select(attendedUniv => new Tuple<string, string>(
-						attendedUniv.UniversityName,
-						string.Join(", ", attendedUniv.StudentExtended.StudentExtended
-							.Select(stud => $"{stud.FirstName} {stud.LastName}"))))
-
-				.ToList();
+				.ToList()
+				.Select( univ => new Tuple<string, string>(
+						univ.UniversityName,
+						string.Join(", ", univ.StudentAtendedUniv.StudentExtended))
+						);
 
 			foreach (var univ in allUniversitiesWithAllStudents)
 			{
-				Console.WriteLine($"Univeristy = {univ.UniversityName} has following students :" +
-					$"{univ.StudentExtended.StudentExtended.FirstName} {univ.StudentExtended.StudentExtended.LastName}");
+				Console.WriteLine($"{univ.Item1} {univ.Item2}");
 			}
 
 			//foreach (var univ in allUniversitiesWithAllStudents)
