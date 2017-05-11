@@ -78,7 +78,8 @@ namespace LinqExcercises
 			return allDistinctCourse;
 		}
 
-		public static IEnumerable<Tuple<string, string>> ListOfAllStudentsFromAllUniversities
+		//public static IEnumerable<Tuple<string, string>> ListOfAllStudentsFromAllUniversities
+		public static bool? ListOfAllStudentsFromAllUniversities
 			(University[] universities, AttendedUniversity[] attendedUniversities, Student[] students)
 		{
 			if (universities == null || universities.Length <= 0)
@@ -126,14 +127,15 @@ namespace LinqExcercises
 				})
 				.Select(attendedUniv => new Tuple<string, string>(
 						attendedUniv.UniversityName,
-						string.Join(", ", attendedUniv.StudentExtended.StudentExtended.
-							Select(stud => $"{stud.FirstName} {stud.LastName}"))))
+						string.Join(", ", attendedUniv.StudentExtended.StudentExtended
+							.Select(stud => $"{stud.FirstName} {stud.LastName}"))))
 
 				.ToList();
 
 			foreach (var univ in allUniversitiesWithAllStudents)
 			{
-				Console.WriteLine($"Univeristy = {univ.Item1} has following students :{univ.Item2}");
+				Console.WriteLine($"Univeristy = {univ.UniversityName} has following students :" +
+					$"{univ.StudentExtended.StudentExtended.FirstName} {univ.StudentExtended.StudentExtended.LastName}");
 			}
 
 			//foreach (var univ in allUniversitiesWithAllStudents)
@@ -148,7 +150,7 @@ namespace LinqExcercises
 			//}
 
 
-			return allUniversitiesWithAllStudents;
+			return true;
 		}
 	}
 }

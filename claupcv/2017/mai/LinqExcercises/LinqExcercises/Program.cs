@@ -37,7 +37,7 @@ namespace LinqExcercises
 			ConsoleManagement.ForeachShowCoursesToConsole(allDistinctCourse);
 
 
-			var allUniversitiesWithAllStudents = DataReports.ListOfAllStudentsFromAllUniversities(university, attendedUniversity, students);
+			var allUniversitiesWithAllStudents = DataReports.ListOfAllStudentsFromAllUniversities(universities, attendedUniversity, students);
 			//nu este nevoie din cauza tipului care nus tiu cum sa il iau
 			//ConsoleManagement.ForeachShowAllStudentsToAllUniverisites(allUniversitiesWithAllStudents);
 
