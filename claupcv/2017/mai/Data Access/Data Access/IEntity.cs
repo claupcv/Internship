@@ -4,8 +4,8 @@ using System.Text;
 
 namespace DataAccess
 {
-    public interface IServerConectionCredentials
+    public class Entity
     {
-		
-	}
+		public string Id { get; protected set; }
+    }
 }
