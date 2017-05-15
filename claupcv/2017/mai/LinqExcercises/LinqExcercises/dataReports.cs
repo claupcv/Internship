@@ -60,7 +60,7 @@ namespace LinqExcercises
 			Console.WriteLine($"[List of all persons that are not students]");
 			var allNonStudents = persons.
 				Except(persons.OfType<Student>());
-
+				
 			return allNonStudents;
 		}
 
@@ -73,7 +73,7 @@ namespace LinqExcercises
 			}
 
 			Console.WriteLine($"[List of all distinct courses]");
-			var allDistinctCourse = courses.Distinct();
+			var allDistinctCourse = courses.Distinct();				
 
 			return allDistinctCourse;
 		}
@@ -101,42 +101,45 @@ namespace LinqExcercises
 			}
 
 			Console.WriteLine($"[List of all students from all univerisities]");
-
+			
 			var allUniversitiesWithAllStudents = universities.Join(
 
 				attendedUniversities.Join(
+
 					students.SelectMany(
-						student => student.AtendedUniversityIDs,
-						(student, UniversityID) => new
-						{ student.PersonID, student.FirstName, student.LastName, UniversityID }),
+						studentID => studentID.AtendedUniversityIDs ,
+						(student, atendedUniversityID) => new
+						{
+							PersonID = student.PersonID,
+							FirstName = student.FirstName,
+							LastName = student.LastName,
+							AtendedUniversityID = atendedUniversityID
+						}).ToList(),
+
 					attendedUniv => attendedUniv.AttendedUniversityID,
-					stud => stud.UniversityID,
-					(attendedUniv, student) => new
+					stud => stud.AtendedUniversityID,
+					(attendedUniv, stud) => new
 					{
 						UniversityID = attendedUniv.UniversityID,
-						StudentExtended = student,
+						StudentExtended = stud,
 					}),
+
 				univ => univ.UniversityID,
 				attendedUniv => attendedUniv.UniversityID,
-				(attendedUniv, student) => new
+				(univ, attendedUniv) => new
 				{
-					UniversityName = attendedUniv.UniversityName,
-					StudentExtended = student,
-
-
+					UniversityName = univ.UniversityName,
+					StudentAtendedUniv = attendedUniv,
 				})
-				.Select(attendedUniv => new Tuple<string, string>(
-						attendedUniv.UniversityName,
-						string.Join(", ", attendedUniv.StudentExtended.StudentExtended
-							//.Select(stud => $"{stud.FirstName} {stud.LastName}")
-							)))
-
-				.ToList();
+				.ToList()
+				.Select( univ => new Tuple<string, string>(
+						univ.UniversityName,
+						string.Join(", ", univ.StudentAtendedUniv.StudentExtended))
+						);
 
 			foreach (var univ in allUniversitiesWithAllStudents)
 			{
-				Console.WriteLine($"Univeristy = {univ} has following students :" +
-					$"{univ.Item1} {univ.Item2}");
+				Console.WriteLine($"{univ.Item1} {univ.Item2}");
 			}
 
 			//foreach (var univ in allUniversitiesWithAllStudents)
@@ -153,54 +156,5 @@ namespace LinqExcercises
 
 			return true;
 		}
-
-		public static List<Course> ReturnLongestCourseName(Course[] course)
-		{
-
-			if (course == null || course.Length <= 0)
-			{
-				Console.WriteLine("NullOrEmptyCourses");
-				return null;
-			}
-
-			var query = course.GroupBy(e => e.CourseName.Length)
-						.FirstOrDefault().ToList();
-			return query;
-		}
-
-		public static IEnumerable<String> AllCoursesFromUniversityForAYear(Course[] courses, University[] universities,  int universityID, int year)
-		{
-			var query = from course in courses
-						join university in universities on course.UniversityID equals university.UniversityID
-						where university.UniversityID == universityID
-						where course.CourseYear == year
-						select course.CourseName;
-			return query;
-		}
-
-		public static IEnumerable<String> GetAllStudentsFromUniveristyByPage(Student[] students, AttendedUniversity[] attendedUniversities, University[] universities, int pageIndex, int universityID, int pageSize)
-		{
-
-			var query = from student in students
-						from attendedUniversitie in attendedUniversities
-						select new
-						{
-							Student = student,
-							UniversityID = attendedUniversitie.UniversityID
-						} into studUniv
-						join university in universities
-						on studUniv.UniversityID equals university.UniversityID
-						where university.UniversityID == universityID
-						select studUniv.Student;
-
-			int totalNomberOfStudent = query.Count();
-
-			var pageStudent = query.Skip((pageIndex+1) * pageSize);
-
-			
-			return pageStudent;
-		}
-
-
 	}
 }
