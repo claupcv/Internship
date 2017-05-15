@@ -28,7 +28,7 @@ namespace DataAccess
 
 		public IEnumerable<T> GetAll()
 		{
-			return Context.SetData<T>().ToList();
+			return Context.Set<T>().ToList();
 		}
 
 		public T GetByID(int ID)
