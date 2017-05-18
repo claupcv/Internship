@@ -12,8 +12,16 @@ namespace PresentationLayerConsole
 	{
 		static void Main(string[] args)
 		{
-			PersonBusinessObject pers = new PersonBusinessObject();
-			pers.GetPersonByName("clau");
+
+			// get from SQL database
+			PersonDisplaysToConsole.SQLFindPersonByName("clau");
+
+			// get from XML
+			PersonDisplaysToConsole.XMLFindPersonByName("clau");
+			
+
+			Console.WriteLine("Press anny key to end.....");
+			Console.ReadKey();
 		}
 	}
 }

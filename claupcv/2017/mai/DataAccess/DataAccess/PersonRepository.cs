@@ -9,17 +9,20 @@ namespace DataAccess
 {
 	public class PersonRepository : Repository<Person>, IPersonRepository
 	{
-		
-
-		public PersonRepository(PersonContext context)
+		//ctor database
+		public PersonRepository(DataBaseContext context)
 			:base(context)
 		{
-
 		}
 
 		public IEnumerable<Person> GetByName(string text)
 		{
-			return base.Context.Set<Person>().Where(name=> name.FirstName == text || name.LastName == text ).ToList();
+			return this.DataContext.Persons.Where(name=> name.FirstName == text || name.LastName == text ).ToList();
+		}
+
+		public DataBaseContext DataContext
+		{
+			get { return Context as DataBaseContext; }
 		}
 	}
 }

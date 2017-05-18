@@ -10,23 +10,19 @@ namespace BusinessObject
 {
     public class PersonBusinessObject
 	{
-		private PersonRepository personRepository;
-		private PersonContext personContext = new PersonContext();
-
-		public PersonBusinessObject()
-		{
-			personRepository = new PersonRepository(personContext);
-		}
-
+		// for SQL
+		//private PersonRepository personRepository = new PersonRepository(new DataBaseContext());
+		
+		// for XML
+		private XMLPersonRepository personRepository = new XMLPersonRepository(new XMLContext());
 		public PersonRepository GetPersonByName(string name)
 		{
-			PersonRepository personRepository = new PersonRepository(personContext);
 
 			var personData = personRepository.GetByName(name);
 
 			foreach (var person in personData)
 			{
-				Console.WriteLine($"PersonID: {person.PersonID}, Name: {person.FirstName} {person.LastName}, DOB: {DateTime.Now-person.DateOfBirth}");
+				Console.WriteLine($"PersonID: {person.PersonID}, Name: {person.FirstName} {person.LastName}, DOB: {person.DateOfBirth.ToShortDateString()}");
 			}
 
 
