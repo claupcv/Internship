@@ -7,15 +7,15 @@ using BusinessObject;
 
 namespace PresentationLayerConsole
 {
-	public static class PersonDisplaysToConsole
+	public class PersonUi
 	{
-		public static void SQLFindPersonByName(string text)
+		public void SQLFindPersonByName(string text)
 		{
 			PersonBusinessObject pers = new PersonBusinessObject();
 			pers.GetPersonByName(text);
 		}
 
-		public static void XMLFindPersonByName(string text)
+		public void XMLFindPersonByName(string text)
 		{
 			PersonBusinessObject pers = new PersonBusinessObject();
 			pers.GetPersonByName(text);

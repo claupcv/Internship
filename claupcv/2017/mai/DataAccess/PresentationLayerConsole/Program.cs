@@ -12,13 +12,9 @@ namespace PresentationLayerConsole
 	{
 		static void Main(string[] args)
 		{
-
-			// get from SQL database
-			PersonDisplaysToConsole.SQLFindPersonByName("clau");
-
-			// get from XML
-			PersonDisplaysToConsole.XMLFindPersonByName("clau");
+			PersonUi personUI = new PersonUi();
 			
+			personUI.SQLFindPersonByName("clau");			
 
 			Console.WriteLine("Press anny key to end.....");
 			Console.ReadKey();
