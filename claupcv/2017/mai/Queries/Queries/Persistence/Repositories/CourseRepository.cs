@@ -20,7 +20,7 @@ namespace Queries.Persistence.Repositories
 
         public IEnumerable<Course> GetCoursesWithAuthors(int pageIndex, int pageSize = 10)
         {
-            return PlutoContext.Courses
+            return this.PlutoContext.Courses
                 .Include(c => c.Author)
                 .OrderBy(c => c.Name)
                 .Skip((pageIndex - 1) * pageSize)

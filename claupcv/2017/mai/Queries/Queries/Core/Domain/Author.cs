@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 namespace Queries.Core.Domain
 {
@@ -14,5 +15,7 @@ namespace Queries.Core.Domain
         public string Name { get; set; }
 
         public virtual ICollection<Course> Courses { get; set; }
-    }
+
+		public DateTime DateOfBirth { get; set; } = DateTime.MinValue;
+	}
 }
