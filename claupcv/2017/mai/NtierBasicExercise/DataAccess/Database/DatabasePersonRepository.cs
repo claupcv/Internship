@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using Models.Core;
 
 namespace DataAccess.Database
 {
@@ -31,8 +32,22 @@ namespace DataAccess.Database
 		}
 		public SortedCollection<Person, PersonSortCriteria> GetPersonSorted(PersonSortCriteria sortCriteria, SortDirection sortDirection)
 		{
+
 			var sqlSort = new StringBuilder();
-			sqlSort.Append("LastName ASC");
+			ValueTypeMultiSwitch<PersonSortCriteria, SortDirection>
+			  .On(sortCriteria, sortDirection)
+			  .Case(PersonSortCriteria.ById, SortDirection.Ascending, () => sqlSort.Append("PersonID Asc"))
+			  .Case(PersonSortCriteria.ById, SortDirection.Descending, () => sqlSort.Append("PersonID Desc"))
+			  .Case(PersonSortCriteria.ByFirstName, SortDirection.Ascending, () => sqlSort.Append("FirstName Asc"))
+			  .Case(PersonSortCriteria.ByFirstName, SortDirection.Descending, () => sqlSort.Append("FirstName Desc"))
+			  .Case(PersonSortCriteria.ByLastName, SortDirection.Ascending, () => sqlSort.Append("LastName Asc"))
+			  .Case(PersonSortCriteria.ByLastName, SortDirection.Descending, () => sqlSort.Append("LastName Desc"))
+			  .Case(PersonSortCriteria.ByBirthDate, SortDirection.Ascending, () => sqlSort.Append("DateOfBirth Asc"))
+			  .Case(PersonSortCriteria.ByBirthDate, SortDirection.Descending, () => sqlSort.Append("DateOfBirth Desc"))
+			  .Default(() => sqlSort.Append("PersonID Asc"))
+			  .Evaluate();
+
+
 			var sqlData = new StringBuilder();
 			sqlData.Append(@"
 				SELECT [PersonID]

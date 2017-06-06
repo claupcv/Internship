@@ -1,8 +1,8 @@
-﻿using DataAccess;
+﻿using Models;
 using Models.Sorting;
+
 using Presentation.ConsoleUI.Views.Abstractions;
 using System;
-using System.Collections.Generic;
 
 namespace Presentation.ConsoleUI.Views.Implementation
 {

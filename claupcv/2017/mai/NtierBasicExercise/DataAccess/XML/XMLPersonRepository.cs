@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace DataAccess
+namespace DataAccess.XML
 {
 	public class XmlPersonRepository : IPersonRepository
 	{

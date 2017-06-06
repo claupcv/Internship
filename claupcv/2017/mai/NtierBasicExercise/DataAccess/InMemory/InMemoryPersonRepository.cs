@@ -1,4 +1,5 @@
 ﻿using DataAccess.Repository;
+using Models;
 using Models.Sorting;
 using System;
 using System.Collections.Generic;

@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+@using Models;
+@using Models.Sorting;
+@model SortedCollection<Person, PersonSortCriteria>
+
+<div>
+    <h2>Person list</h2>
+
+    <div class="container-fluid">
+        <div class="row" style="background-color:#dcd7d7;">
+            <div class="col-md-4">@Html.ActionLink("#ID", "Index", new { sortParam = "id"})</div>
+            <div class="col-md-4">@Html.ActionLink("First Name", "Index", new { sortParam = "firstName" })</div>
+            <div class="col-md-4">@Html.ActionLink("Date of Birth", "Index", new { sortParam = "birthtDate" })</div>
+
+            <div class="col-md-4">@Html.Hidden("SortCriteria", (object)ViewBag.paramCriteria = sortParam)</div>
+            <div class="col-md-4">@Html.Hidden("sortDirection", (object)ViewBag.paramDirection)</div>
+            
+        </div>
+        @foreach (var p in Model.Data)
+        {
+            <div class="row">
+                <div class="col-md-4">@p.PersonID</div>
+                <div class="col-md-4">@p.FirstName</div>
+                <div class="col-md-4">@string.Format("{0:dd-MM-yyyy}", p.DateOfBirth)</div>
+            </div>
+        }        
+    </div>
+</div>
