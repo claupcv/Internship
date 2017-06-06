@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataAccess.Repository;
+using Models.Sorting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,27 +8,26 @@ using System.Threading.Tasks;
 using DataAccess;
 using System.Data;
 
+
 namespace BusinessObject
 {
     public class PersonBusinessObject
 	{
-		// for SQL
-		//private PersonRepository personRepository = new PersonRepository(new DataBaseContext());
-		
-		// for XML
-		private XMLPersonRepository personRepository = new XMLPersonRepository(new XMLContext());
-		public PersonRepository GetPersonByName(string name)
+		private readonly IPersonRepository personsRepository;
+
+		public PersonBusinessObject(IPersonRepository personsRepository)
 		{
-
-			var personData = personRepository.GetByName(name);
-
-			foreach (var person in personData)
+			if (personsRepository == null)
 			{
-				Console.WriteLine($"PersonID: {person.PersonID}, Name: {person.FirstName} {person.LastName}, DOB: {person.DateOfBirth.ToShortDateString()}");
+				throw new ArgumentNullException($"{nameof(personsRepository)}");
 			}
 
-
-				return personRepository;
+			this.personsRepository = personsRepository;
 		}
-    }
+
+		public SortedCollection<Person, PersonSortCriteria> GetPersonsPaged(PersonSortCriteria sortCriteria, SortDirection sortDirection)
+		{
+			return this.personsRepository.GetPersonSorted(sortCriteria, sortDirection);
+		}
+	}
 }
