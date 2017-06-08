@@ -132,5 +132,20 @@ namespace DataAccess.InMemory
 		{
 			throw new NotImplementedException();
 		}
+
+		public PersonCRUDStatus Add(Person person)
+		{
+			throw new NotImplementedException();
+		}
+
+		public PersonCRUDStatus Delete(Person person)
+		{
+			throw new NotImplementedException();
+		}
+
+		public PersonCRUDStatus Edit(Person person)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

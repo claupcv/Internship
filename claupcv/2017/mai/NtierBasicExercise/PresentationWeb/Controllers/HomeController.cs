@@ -30,6 +30,15 @@ namespace PresentationWeb.Controllers
 
 			var sortDirection = SortDirection.Ascending;
 
+
+			ViewBag.IDSortParam = String.IsNullOrEmpty(sortOrder) ? "id_desc" : "";
+
+			ViewBag.FirstNameSortParam = sortOrder == "firstName" ? "firstName_desc" : "firstName";
+
+			ViewBag.birthtDateSortParam = sortOrder == "birthtDate" ? "birthtDate_desc" : "birthtDate";
+
+
+
 			if (sortOrder == "Desc")
 			{
 				sortDirection = SortDirection.Descending;
@@ -40,19 +49,31 @@ namespace PresentationWeb.Controllers
 				ViewBag.paramCriteria = sortParam;
 
 
-			switch (sortParam)
+			switch (sortOrder)
 			{
-				case "id":
+				case "id_desc":
 					SortCriteria = PersonSortCriteria.ById;
+					sortDirection = SortDirection.Descending;
 					break;
 				case "firstName":
 					SortCriteria = PersonSortCriteria.ByFirstName;
+					sortDirection = SortDirection.Ascending;
+					break;
+				case "firstName_desc":
+					SortCriteria = PersonSortCriteria.ByFirstName;
+					sortDirection = SortDirection.Descending;
 					break;
 				case "birthtDate":
 					SortCriteria = PersonSortCriteria.ByBirthDate;
+					sortDirection = SortDirection.Ascending;
+					break;
+				case "birthtDate_desc":
+					SortCriteria = PersonSortCriteria.ByBirthDate;
+					sortDirection = SortDirection.Descending;
 					break;
 				default:
 					SortCriteria = PersonSortCriteria.ById;
+					sortDirection = SortDirection.Ascending;
 					break;
 			}
 
@@ -79,10 +100,37 @@ namespace PresentationWeb.Controllers
 			return View();
 		}
 
-		public IActionResult PostAddPerson(string FirstName, string LastName, string DateOfBirth)
+		public IActionResult SaveNewPerson(Person person)
 		{
-			//Redirect("AddPerson");
-			return Redirect("AddPerson");
+			var personBO = new PersonBusinessObject(this.personRepository);
+
+			ViewBag.InsertResult = personBO.AddPerson(person).ToString();
+			
+
+			return RedirectToAction("AddPerson");
+		}
+
+		public IActionResult DeletePerson(Person person)
+		{
+			var personBO = new PersonBusinessObject(this.personRepository);
+
+			ViewBag.InsertResult = personBO.DeletePerson(person).ToString();
+
+			return RedirectToAction("Index");
+		}
+
+		public IActionResult EditPerson(Person person)
+		{
+			return View(person);
+		}
+
+		public IActionResult PostEditPerson(Person person)
+		{
+			var personBO = new PersonBusinessObject(this.personRepository);
+
+			ViewBag.InsertResult = personBO.EditPerson(person).ToString();
+
+			return RedirectToAction("Index");
 		}
 	}
 }

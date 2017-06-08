@@ -7,21 +7,22 @@
 
 }
 
-<h2>Person list</h2>
-<form method="post" action="PostAddPerson">
+<h2>Add new Person</h2>
+<form action="/Home/SaveNewPerson" method="post">
     <div>
-        <label>First Name:</label>
-        <input type="text" id="FirstName" name="FirstName" value="" />
+        <label for="txtFirstName">First Name:</label>
+        <input type="text" id="txtFirstName" name="txtFirstName" />
+    </div>
+    
+    <div>
+        <label for="txtLastName">Last Name:</label>
+        <input type="text" id="txtLastName" name="txtLastName" />
     </div>
 
     <div>
-        <label>Last Name:</label>
-        <input type="text" id="LastName" name="LastName" value="" />
+        <label for="txtDateOfBirth">Date of Birth:</label>
+        <input type="date" id="txtDateOfBirth" name="txtDateOfBirth" />
     </div>
-
-    <div>
-        <label>Date of Birth:</label>
-        <input type="date" id="DateOfBirth" name="DateOfBirth" value="" />
-    </div>
-    <input type="submit" id="SavePerson" value="Saved" />
+    <p class="alert-info">@ViewBag.InsertResult<p />
+    <input type="submit" value="Submit" />
 </form>

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Models.Core;
+using System.Data;
 
 namespace DataAccess.Database
 {
@@ -30,6 +31,142 @@ namespace DataAccess.Database
 
 			this.connectionString = connectionString;
 		}
+
+		public PersonCRUDStatus Add(Person person)
+		{
+
+			using (var sqlConnection = new SqlConnection(this.connectionString))
+			{
+				using (SqlCommand command = new SqlCommand())
+				{
+
+					command.Connection = sqlConnection;            // <== lacking
+					command.CommandType = CommandType.Text;
+					command.CommandText = $"INSERT INTO Persons(FirstName,LastName,DateOfBirth) VALUES (@FirstName,@LastName, @DateOfBirth) ";
+					command.Parameters.AddWithValue("@FirstName", person.FirstName);
+					command.Parameters.AddWithValue("@LastName", person.LastName);
+					command.Parameters.AddWithValue("@DateOfBirth", person.DateOfBirth);
+
+					try
+					{
+						sqlConnection.Open();
+						int recordsAffected = command.ExecuteNonQuery();
+					}
+					catch (SqlException)
+					{
+						return PersonCRUDStatus.PersonNotInserted;
+					}
+					finally
+					{
+						sqlConnection.Close();
+					}
+				}
+			}
+
+			return PersonCRUDStatus.PersonInserted;
+		}
+
+		public PersonCRUDStatus Delete(Person person)
+		{
+			using (var sqlConnection = new SqlConnection(this.connectionString))
+			{
+				using (SqlCommand command = new SqlCommand())
+				{
+
+					command.Connection = sqlConnection;            // <== lacking
+					command.CommandType = CommandType.Text;
+					command.CommandText = $"DELETE FROM [dbo].[Persons] WHERE PersonID= @personID";
+					command.Parameters.AddWithValue("@personID", person.PersonID);
+
+					try
+					{
+						sqlConnection.Open();
+						int recordsAffected = command.ExecuteNonQuery();
+					}
+					catch (SqlException)
+					{
+						return PersonCRUDStatus.PersonNotDeleted;
+					}
+					finally
+					{
+						sqlConnection.Close();
+					}
+				}
+			}
+
+			return PersonCRUDStatus.PersonDeleted;
+		}
+
+		public PersonCRUDStatus Edit(Person person)
+		{
+			using (var sqlConnection = new SqlConnection(this.connectionString))
+			{
+				using (SqlCommand command = new SqlCommand())
+				{
+
+					command.Connection = sqlConnection;            // <== lacking
+					command.CommandType = CommandType.Text;
+					command.CommandText = $"UPDATE Persons   SET FirstName = @FirstName,LastName = @lastName, DateOfBirth = @dateOfBirth WHERE PersonID=@personID";
+					command.Parameters.AddWithValue("@personID", person.PersonID);
+					command.Parameters.AddWithValue("@firstName", person.FirstName);
+					command.Parameters.AddWithValue("@lastName", person.LastName);
+					command.Parameters.AddWithValue("@dateOfBirth", person.DateOfBirth);
+
+					try
+					{
+						sqlConnection.Open();
+						int recordsAffected = command.ExecuteNonQuery();
+					}
+					catch (SqlException)
+					{
+						return PersonCRUDStatus.PersonNotUpdated;
+					}
+					finally
+					{
+						sqlConnection.Close();
+					}
+				}
+			}
+			return PersonCRUDStatus.PersonUpdated;
+
+		}
+
+		public Person GetPerson(int PersonID)
+		{
+
+			Person person;
+
+			using (var sqlConnection = new SqlConnection(this.connectionString))
+			{
+				using (SqlCommand command = new SqlCommand())
+				{
+
+					command.Connection = sqlConnection;            // <== lacking
+					command.CommandType = CommandType.Text;
+					command.CommandText = $"SELECT * FROM persons WHERE PersonID=@personID Limit 1";
+					command.Parameters.AddWithValue("@personID", PersonID);
+
+					sqlConnection.Open();
+					using (var reader = command.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+							person = new Person()
+							{
+								PersonID = (int)reader["PersonID"],
+								FirstName = reader["FirstName"]?.ToString(),
+								LastName = reader["LastName"]?.ToString(),
+								DateOfBirth = (reader["DateOfBirth"] != DBNull.Value) ? (DateTime)reader["DateOfBirth"] : DateTime.MinValue
+							};
+						}
+					}
+
+
+				}
+			}
+			return new Person();
+		}
+
 		public SortedCollection<Person, PersonSortCriteria> GetPersonSorted(PersonSortCriteria sortCriteria, SortDirection sortDirection)
 		{
 
@@ -80,7 +217,6 @@ namespace DataAccess.Database
 				}
 				sqlConnection.Close();
 			}
-
 			return new SortedCollection<Person, PersonSortCriteria>(itemsPerPage, sortCriteria, sortDirection);
 		}
 	}

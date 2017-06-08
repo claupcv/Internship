@@ -11,5 +11,13 @@ namespace DataAccess.Repository
 	public interface IPersonRepository
 	{
 		SortedCollection<Person, PersonSortCriteria> GetPersonSorted(PersonSortCriteria sortCriteria, SortDirection sortDirection);
+
+		PersonCRUDStatus Add(Person person);
+
+		PersonCRUDStatus Delete(Person person);
+
+		PersonCRUDStatus Edit(Person person);
+
+		Person GetPerson(int PersonID);
 	}
 }

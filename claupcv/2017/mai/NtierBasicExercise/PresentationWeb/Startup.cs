@@ -36,7 +36,11 @@ namespace PresentationWeb
 					.Configure<GlobalSettings>(Configuration.GetSection("Configuration"));
 
 			// Add framework services.
-			services.AddMvc();
+			services.AddMvc(
+				options =>
+				{
+					options.ModelBinderProviders.Insert(0, new PersonModelBinderProvider());
+				});
 
 			services
 			 .AddSingleton(provider => provider.GetService<IOptions<GlobalSettings>>().Value)

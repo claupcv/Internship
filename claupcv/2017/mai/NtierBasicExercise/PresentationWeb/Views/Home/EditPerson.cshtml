@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Edit Person";
+}
+
+@using Models;
+@model  Person
+
+<h2>Edit Person</h2>
+<form action="/Home/PostEditPerson" method="post">
+    <div>
+        <label for="txtFirstName">First Name:</label>
+        <input type="text" id="txtFirstName" name="txtFirstName" value="@Model.FirstName" />
+    </div>
+    
+    <div>
+        <label for="txtLastName">Last Name:</label>
+        <input type="text" id="txtLastName" name="txtLastName" value="@Model.LastName" />
+    </div>
+
+    <div>
+        <label for="txtDateOfBirth">Date of Birth:</label>
+        <input type="date" id="txtDateOfBirth" name="txtDateOfBirth" value="@Model.DateOfBirth" />
+    </div>
+    <p class="alert-info">@ViewBag.InsertResult<p />
+
+    <input type="hidden" id="PersonID" name="txtDateOfBirth" value="@Model.PersonID" />
+    <input type="submit" value="Save" />
+</form>

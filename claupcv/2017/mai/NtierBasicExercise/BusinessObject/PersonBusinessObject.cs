@@ -29,5 +29,20 @@ namespace BusinessObject
 		{
 			return this.personsRepository.GetPersonSorted(sortCriteria, sortDirection);
 		}
+
+		public PersonCRUDStatus AddPerson(Person person)
+		{
+			return this.personsRepository.Add(person);
+		}
+
+		public PersonCRUDStatus DeletePerson(Person person)
+		{
+			return this.personsRepository.Delete(person);
+		}
+
+		public PersonCRUDStatus EditPerson(Person person)
+		{
+			return this.personsRepository.Edit(person);
+		}
 	}
 }

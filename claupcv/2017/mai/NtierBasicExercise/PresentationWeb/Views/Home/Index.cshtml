@@ -7,30 +7,37 @@
 
 <div>
     <h2>Person list</h2>
-    <div class="col-md-8 right">
+    <p class="alert-info">@ViewBag.InsertResult<p/>
+    <div class="right">
         @Html.ActionLink("Create Person", "AddPerson")
     </div>
     <div class="container-fluid">
         
         <div class="row" style="background-color:#dcd7d7;">
-            <div class="col-md-4 ">
-                @Html.ActionLink("#ID", "Index", new { sortParam = "id", sortOrder = ViewBag.paramCriteria=="id" ? "Asc" : "Desc" })
+            <div class="col-md-2 ">
+                @Html.ActionLink("#ID", "Index", new { sortParam = "id", sortOrder = ViewBag.IDSortParam })
             </div>
-            <div class="col-md-4">
-                @Html.ActionLink("First Name", "Index", new { sortParam = "firstName", sortOrder = ViewBag.paramCriteria == "firstName" ? "Asc" : "Desc" })
+            <div class="col-md-2">
+                @Html.ActionLink("First Name", "Index", new { sortParam = "firstName", sortOrder = ViewBag.FirstNameSortParam })
             
             </div>
-            <div class="col-md-4">
-                @Html.ActionLink("Date of Birth", "Index", new { sortParam = "birthtDate", sortOrder = ViewBag.paramCriteria == "birthtDate" ? "Asc" : "Desc" })
-            </div>            
-            
-        </div>
+            <div class="col-md-2">
+                @Html.ActionLink("Date of Birth", "Index", new { sortParam = "birthtDate", sortOrder = ViewBag.birthtDateSortParam })
+            </div> 
+            <div class="col-md-3">
+                Edit Person
+            </div>
+            <div class="col-md-3">
+                Delete Person
+            </div>
         @foreach (var p in Model.Data)
         {
             <div class="row">
-                <div class="col-md-4">@p.PersonID</div>
-                <div class="col-md-4">@p.FirstName</div>
-                <div class="col-md-4">@string.Format("{0:dd-MM-yyyy}", p.DateOfBirth)</div>
+                <div class="col-md-2">@p.PersonID</div>
+                <div class="col-md-2">@p.FirstName</div>
+                <div class="col-md-2">@string.Format("{0:dd-MM-yyyy}", p.DateOfBirth)</div>
+                <div class="col-md-3">@Html.ActionLink("Edit", "EditPerson", new { PersonID = p.PersonID }, new { @class = "editPerson" })</div>
+                <div class="col-md-3">@Html.ActionLink("Delete", "DeletePerson", new { PersonID = p.PersonID }, new { @class = "removePerson" })</div>
             </div>
         }        
     </div>

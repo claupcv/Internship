@@ -18,6 +18,8 @@ namespace PresentationWeb
 			{
 				throw new ArgumentNullException(nameof(bindingContext));
 			}
+			var personIDProviderResult =
+				 bindingContext.ValueProvider.GetValue("PersonID");
 
 			var firstNameProviderResult =
 				 bindingContext.ValueProvider.GetValue("txtFirstName");
@@ -34,6 +36,7 @@ namespace PresentationWeb
 			bindingContext.Result = ModelBindingResult.Success(
 			  new Person()
 			  {
+				  PersonID = int.Parse(personIDProviderResult.FirstValue),
 				  FirstName = firstNameProviderResult.FirstValue,
 				  LastName = lastNameProviderResult.FirstValue,
 				  DateOfBirth = dateOfBirth

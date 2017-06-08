@@ -45,6 +45,21 @@ namespace DataAccess.XML
 
 		}
 
+		public PersonCRUDStatus Add(Person person)
+		{
+			throw new NotImplementedException();
+		}
+
+		public PersonCRUDStatus Delete(Person person)
+		{
+			throw new NotImplementedException();
+		}
+
+		public PersonCRUDStatus Edit(Person person)
+		{
+			throw new NotImplementedException();
+		}
+
 		public SortedCollection<Person, PersonSortCriteria> GetPersonSorted(PersonSortCriteria sortCriteria, SortDirection sortDirection)
 		{
 			IEnumerable<Person> query = from persElement in this.xmlDocument.Descendants("Person")
