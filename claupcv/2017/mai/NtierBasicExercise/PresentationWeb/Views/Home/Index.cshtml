@@ -7,15 +7,22 @@
 
 <div>
     <h2>Person list</h2>
-
+    <div class="col-md-8 right">
+        @Html.ActionLink("Create Person", "AddPerson")
+    </div>
     <div class="container-fluid">
+        
         <div class="row" style="background-color:#dcd7d7;">
-            <div class="col-md-4">@Html.ActionLink("#ID", "Index", new { sortParam = "id"})</div>
-            <div class="col-md-4">@Html.ActionLink("First Name", "Index", new { sortParam = "firstName" })</div>
-            <div class="col-md-4">@Html.ActionLink("Date of Birth", "Index", new { sortParam = "birthtDate" })</div>
-
-            <div class="col-md-4">@Html.Hidden("SortCriteria", (object)ViewBag.paramCriteria = sortParam)</div>
-            <div class="col-md-4">@Html.Hidden("sortDirection", (object)ViewBag.paramDirection)</div>
+            <div class="col-md-4 ">
+                @Html.ActionLink("#ID", "Index", new { sortParam = "id", sortOrder = ViewBag.paramCriteria=="id" ? "Asc" : "Desc" })
+            </div>
+            <div class="col-md-4">
+                @Html.ActionLink("First Name", "Index", new { sortParam = "firstName", sortOrder = ViewBag.paramCriteria == "firstName" ? "Asc" : "Desc" })
+            
+            </div>
+            <div class="col-md-4">
+                @Html.ActionLink("Date of Birth", "Index", new { sortParam = "birthtDate", sortOrder = ViewBag.paramCriteria == "birthtDate" ? "Asc" : "Desc" })
+            </div>            
             
         </div>
         @foreach (var p in Model.Data)

@@ -24,32 +24,20 @@ namespace PresentationWeb.Controllers
 
 
 
-		public IActionResult Index(string sortParam)
+		public IActionResult Index(string sortParam, string sortOrder)
 		{
 			var SortCriteria = PersonSortCriteria.ById;
 
 			var sortDirection = SortDirection.Ascending;
 
-			if (ViewBag.paramCriteria == sortParam)
+			if (sortOrder == "Desc")
 			{
-				if(ViewBag.paramDirection == "Asc")
-				{
-					sortDirection = SortDirection.Descending;
-					ViewBag.paramDirection = "Desc";
-				}
-				else if (ViewBag.paramDirection == "Desc")
-				{
-					sortDirection = SortDirection.Ascending;
-					ViewBag.paramDirection = "Asc";
-				}
-				
+				sortDirection = SortDirection.Descending;
 			}
-			else if(ViewBag.paramCriteria != sortParam)
-			{
-				sortDirection = SortDirection.Ascending;
-				ViewBag.paramDirection = "Asc";
-			}
-			ViewBag.paramCriteria = sortParam;
+
+			if (sortParam == "id" && sortOrder == "Asc")
+
+				ViewBag.paramCriteria = sortParam;
 
 
 			switch (sortParam)
@@ -68,7 +56,7 @@ namespace PresentationWeb.Controllers
 					break;
 			}
 
-			return this.List(criteria : SortCriteria, sortDirection : sortDirection);
+			return this.List(criteria: SortCriteria, sortDirection: sortDirection);
 		}
 
 
@@ -76,7 +64,7 @@ namespace PresentationWeb.Controllers
 		{
 			var personBO = new PersonBusinessObject(this.personRepository);
 
-			var data = personBO.GetPersonsPaged(criteria, sortDirection);			
+			var data = personBO.GetPersonsPaged(criteria, sortDirection);
 
 			return View("Index", data);
 		}
@@ -84,6 +72,17 @@ namespace PresentationWeb.Controllers
 		public IActionResult Error()
 		{
 			return View();
+		}
+
+		public IActionResult AddPerson()
+		{
+			return View();
+		}
+
+		public IActionResult PostAddPerson(string FirstName, string LastName, string DateOfBirth)
+		{
+			//Redirect("AddPerson");
+			return Redirect("AddPerson");
 		}
 	}
 }
