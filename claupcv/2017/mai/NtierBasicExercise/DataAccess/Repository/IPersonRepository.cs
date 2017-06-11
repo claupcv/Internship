@@ -12,11 +12,11 @@ namespace DataAccess.Repository
 	{
 		SortedCollection<Person, PersonSortCriteria> GetPersonSorted(PersonSortCriteria sortCriteria, SortDirection sortDirection);
 
-		PersonCRUDStatus Add(Person person);
+		Person Add(Person person);
 
-		PersonCRUDStatus Delete(Person person);
+		Person Delete(Person person);
 
-		PersonCRUDStatus Edit(Person person);
+		Person Edit(Person person);
 
 		Person GetPerson(int PersonID);
 	}

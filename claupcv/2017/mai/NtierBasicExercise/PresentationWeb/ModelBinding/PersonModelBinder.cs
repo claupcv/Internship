@@ -18,17 +18,15 @@ namespace PresentationWeb
 			{
 				throw new ArgumentNullException(nameof(bindingContext));
 			}
-			var personIDProviderResult =
-				 bindingContext.ValueProvider.GetValue("PersonID");
 
 			var firstNameProviderResult =
-				 bindingContext.ValueProvider.GetValue("txtFirstName");
+				 bindingContext.ValueProvider.GetValue("FirstName");
 
 			var lastNameProviderResult =
-				 bindingContext.ValueProvider.GetValue("txtLastName");
+				 bindingContext.ValueProvider.GetValue("LastName");
 
 			var dateOfBirthProviderResult =
-				 bindingContext.ValueProvider.GetValue("txtDateOfBirth");
+				 bindingContext.ValueProvider.GetValue("DateOfBirth");
 
 			DateTime dateOfBirth = DateTime.MinValue;
 			DateTime.TryParse(dateOfBirthProviderResult.FirstValue, out dateOfBirth);
@@ -36,7 +34,7 @@ namespace PresentationWeb
 			bindingContext.Result = ModelBindingResult.Success(
 			  new Person()
 			  {
-				  PersonID = int.Parse(personIDProviderResult.FirstValue),
+				  //PersonID = int.Parse(personIDProviderResult.FirstValue),
 				  FirstName = firstNameProviderResult.FirstValue,
 				  LastName = lastNameProviderResult.FirstValue,
 				  DateOfBirth = dateOfBirth

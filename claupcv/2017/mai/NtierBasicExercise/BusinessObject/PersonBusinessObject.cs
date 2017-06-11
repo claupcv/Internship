@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using DataAccess;
 using System.Data;
 using Models;
+using Models.CRUD;
 
 namespace BusinessObject
 {
@@ -30,17 +31,27 @@ namespace BusinessObject
 			return this.personsRepository.GetPersonSorted(sortCriteria, sortDirection);
 		}
 
-		public PersonCRUDStatus AddPerson(Person person)
+		public Person AddPerson(CreatePersonDTO CreateModel)
 		{
-			return this.personsRepository.Add(person);
+			if(CreateModel == null)
+			{
+				throw new Exception();
+			}
+
+			return this.personsRepository.Add(
+				new Person {
+					FirstName = CreateModel.FirstName,
+					LastName = CreateModel.LastName,
+					DateOfBirth = CreateModel.DateOfBirth
+				});
 		}
 
-		public PersonCRUDStatus DeletePerson(Person person)
+		public Person DeletePerson(Person person)
 		{
 			return this.personsRepository.Delete(person);
 		}
 
-		public PersonCRUDStatus EditPerson(Person person)
+		public Person EditPerson(Person person)
 		{
 			return this.personsRepository.Edit(person);
 		}

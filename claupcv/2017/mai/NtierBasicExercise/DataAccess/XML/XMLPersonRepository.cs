@@ -45,17 +45,22 @@ namespace DataAccess.XML
 
 		}
 
-		public PersonCRUDStatus Add(Person person)
+		public Person Add(Person person)
 		{
 			throw new NotImplementedException();
 		}
 
-		public PersonCRUDStatus Delete(Person person)
+		public Person Delete(Person person)
 		{
 			throw new NotImplementedException();
 		}
 
-		public PersonCRUDStatus Edit(Person person)
+		public Person Edit(Person person)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Person GetPerson(int PersonID)
 		{
 			throw new NotImplementedException();
 		}

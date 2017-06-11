@@ -32,7 +32,7 @@ namespace DataAccess.Database
 			this.connectionString = connectionString;
 		}
 
-		public PersonCRUDStatus Add(Person person)
+		public Person Add(Person person)
 		{
 
 			using (var sqlConnection = new SqlConnection(this.connectionString))
@@ -54,7 +54,7 @@ namespace DataAccess.Database
 					}
 					catch (SqlException)
 					{
-						return PersonCRUDStatus.PersonNotInserted;
+						return new Person();
 					}
 					finally
 					{
@@ -63,10 +63,10 @@ namespace DataAccess.Database
 				}
 			}
 
-			return PersonCRUDStatus.PersonInserted;
+			return new Person();
 		}
 
-		public PersonCRUDStatus Delete(Person person)
+		public Person Delete(Person person)
 		{
 			using (var sqlConnection = new SqlConnection(this.connectionString))
 			{
@@ -85,7 +85,7 @@ namespace DataAccess.Database
 					}
 					catch (SqlException)
 					{
-						return PersonCRUDStatus.PersonNotDeleted;
+						return new Person();
 					}
 					finally
 					{
@@ -94,10 +94,10 @@ namespace DataAccess.Database
 				}
 			}
 
-			return PersonCRUDStatus.PersonDeleted;
+			return new Person();
 		}
 
-		public PersonCRUDStatus Edit(Person person)
+		public Person Edit(Person person)
 		{
 			using (var sqlConnection = new SqlConnection(this.connectionString))
 			{
@@ -119,7 +119,7 @@ namespace DataAccess.Database
 					}
 					catch (SqlException)
 					{
-						return PersonCRUDStatus.PersonNotUpdated;
+						return new Person();
 					}
 					finally
 					{
@@ -127,7 +127,7 @@ namespace DataAccess.Database
 					}
 				}
 			}
-			return PersonCRUDStatus.PersonUpdated;
+			return new Person();
 
 		}
 

@@ -11,6 +11,9 @@ using Microsoft.Extensions.Options;
 using Models;
 using Models.Core;
 using Models.IO;
+using Microsoft.AspNetCore.Mvc.Razor;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace PresentationWeb
 {
@@ -34,13 +37,16 @@ namespace PresentationWeb
 		{
 			services.AddOptions()
 					.Configure<GlobalSettings>(Configuration.GetSection("Configuration"));
-
+			services.AddLocalization(options => options.ResourcesPath = "Resources");
 			// Add framework services.
 			services.AddMvc(
 				options =>
 				{
 					options.ModelBinderProviders.Insert(0, new PersonModelBinderProvider());
-				});
+
+				})
+				.AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+				.AddDataAnnotationsLocalization();
 
 			services
 			 .AddSingleton(provider => provider.GetService<IOptions<GlobalSettings>>().Value)
@@ -63,6 +69,22 @@ namespace PresentationWeb
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 		{
+
+			var supportedCultures = new[]
+			{
+				new CultureInfo("en-US"),
+				new CultureInfo("ro-RO"),
+			};
+
+			app.UseRequestLocalization(new RequestLocalizationOptions
+			{
+				DefaultRequestCulture = new RequestCulture("en-US"),
+				// Formatting numbers, dates, etc.
+				SupportedCultures = supportedCultures,
+				// UI strings that we have localized.
+				SupportedUICultures = supportedCultures
+			});
+
 			loggerFactory.AddConsole(Configuration.GetSection("Logging"));
 			loggerFactory.AddDebug();
 
