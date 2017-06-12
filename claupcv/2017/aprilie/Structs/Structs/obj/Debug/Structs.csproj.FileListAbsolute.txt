@@ -1,6 +1,0 @@
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Structs\Structs\bin\Debug\Structs.exe.config
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Structs\Structs\obj\Debug\Structs.csprojResolveAssemblyReference.cache
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Structs\Structs\bin\Debug\Structs.exe
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Structs\Structs\bin\Debug\Structs.pdb
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Structs\Structs\obj\Debug\Structs.exe
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Structs\Structs\obj\Debug\Structs.pdb

@@ -1,6 +1,0 @@
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\ArrayManagement\ArrayManagement\bin\Debug\ArrayManagement.exe.config
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\ArrayManagement\ArrayManagement\obj\Debug\ArrayManagement.csprojResolveAssemblyReference.cache
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\ArrayManagement\ArrayManagement\bin\Debug\ArrayManagement.exe
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\ArrayManagement\ArrayManagement\bin\Debug\ArrayManagement.pdb
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\ArrayManagement\ArrayManagement\obj\Debug\ArrayManagement.exe
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\ArrayManagement\ArrayManagement\obj\Debug\ArrayManagement.pdb

@@ -1,6 +1,0 @@
-D:\Work\dev\csharp\trencadis\github\intership\clau\2017\martie\Interface\Interface\bin\Debug\Interface.exe.config
-D:\Work\dev\csharp\trencadis\github\intership\clau\2017\martie\Interface\Interface\obj\Debug\Interface.csprojResolveAssemblyReference.cache
-D:\Work\dev\csharp\trencadis\github\intership\clau\2017\martie\Interface\Interface\bin\Debug\Interface.exe
-D:\Work\dev\csharp\trencadis\github\intership\clau\2017\martie\Interface\Interface\bin\Debug\Interface.pdb
-D:\Work\dev\csharp\trencadis\github\intership\clau\2017\martie\Interface\Interface\obj\Debug\Interface.exe
-D:\Work\dev\csharp\trencadis\github\intership\clau\2017\martie\Interface\Interface\obj\Debug\Interface.pdb

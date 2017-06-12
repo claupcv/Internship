@@ -1,6 +1,0 @@
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\NullableTypes\NullableTypes\bin\Debug\NullableTypes.exe.config
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\NullableTypes\NullableTypes\bin\Debug\NullableTypes.exe
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\NullableTypes\NullableTypes\bin\Debug\NullableTypes.pdb
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\NullableTypes\NullableTypes\obj\Debug\NullableTypes.csprojResolveAssemblyReference.cache
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\NullableTypes\NullableTypes\obj\Debug\NullableTypes.exe
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\NullableTypes\NullableTypes\obj\Debug\NullableTypes.pdb

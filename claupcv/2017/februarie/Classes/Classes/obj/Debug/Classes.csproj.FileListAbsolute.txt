@@ -1,6 +1,0 @@
-D:\Work\dev\csharp\trencadis\github\intership\2017\februarie\Classes\Classes\bin\Debug\Classes.exe.config
-D:\Work\dev\csharp\trencadis\github\intership\2017\februarie\Classes\Classes\obj\Debug\Classes.csprojResolveAssemblyReference.cache
-D:\Work\dev\csharp\trencadis\github\intership\2017\februarie\Classes\Classes\bin\Debug\Classes.exe
-D:\Work\dev\csharp\trencadis\github\intership\2017\februarie\Classes\Classes\bin\Debug\Classes.pdb
-D:\Work\dev\csharp\trencadis\github\intership\2017\februarie\Classes\Classes\obj\Debug\Classes.exe
-D:\Work\dev\csharp\trencadis\github\intership\2017\februarie\Classes\Classes\obj\Debug\Classes.pdb

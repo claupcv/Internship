@@ -1,6 +1,0 @@
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\GeometricFigureCalculator\GeometricFigureCalculator\bin\Debug\GeometricFigureCalculator.exe.config
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\GeometricFigureCalculator\GeometricFigureCalculator\bin\Debug\GeometricFigureCalculator.exe
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\GeometricFigureCalculator\GeometricFigureCalculator\bin\Debug\GeometricFigureCalculator.pdb
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\GeometricFigureCalculator\GeometricFigureCalculator\obj\Debug\GeometricFigureCalculator.csprojResolveAssemblyReference.cache
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\GeometricFigureCalculator\GeometricFigureCalculator\obj\Debug\GeometricFigureCalculator.exe
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\GeometricFigureCalculator\GeometricFigureCalculator\obj\Debug\GeometricFigureCalculator.pdb

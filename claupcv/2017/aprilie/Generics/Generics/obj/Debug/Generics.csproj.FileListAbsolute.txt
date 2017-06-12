@@ -1,6 +1,0 @@
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Generics\Generics\bin\Debug\Generics.exe.config
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Generics\Generics\bin\Debug\Generics.exe
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Generics\Generics\bin\Debug\Generics.pdb
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Generics\Generics\obj\Debug\Generics.csprojResolveAssemblyReference.cache
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Generics\Generics\obj\Debug\Generics.exe
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Generics\Generics\obj\Debug\Generics.pdb

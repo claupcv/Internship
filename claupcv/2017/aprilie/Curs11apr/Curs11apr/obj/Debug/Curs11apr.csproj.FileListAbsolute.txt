@@ -1,6 +1,0 @@
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Curs11apr\Curs11apr\bin\Debug\Curs11apr.exe.config
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Curs11apr\Curs11apr\obj\Debug\Curs11apr.csprojResolveAssemblyReference.cache
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Curs11apr\Curs11apr\bin\Debug\Curs11apr.exe
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Curs11apr\Curs11apr\bin\Debug\Curs11apr.pdb
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Curs11apr\Curs11apr\obj\Debug\Curs11apr.exe
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\Curs11apr\Curs11apr\obj\Debug\Curs11apr.pdb

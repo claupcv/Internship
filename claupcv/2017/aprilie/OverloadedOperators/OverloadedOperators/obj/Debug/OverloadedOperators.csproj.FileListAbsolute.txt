@@ -1,6 +1,0 @@
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\OverloadedOperators\OverloadedOperators\bin\Debug\OverloadedOperators.exe.config
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\OverloadedOperators\OverloadedOperators\bin\Debug\OverloadedOperators.exe
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\OverloadedOperators\OverloadedOperators\bin\Debug\OverloadedOperators.pdb
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\OverloadedOperators\OverloadedOperators\obj\Debug\OverloadedOperators.exe
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\OverloadedOperators\OverloadedOperators\obj\Debug\OverloadedOperators.pdb
-D:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\OverloadedOperators\OverloadedOperators\obj\Debug\OverloadedOperators.csprojResolveAssemblyReference.cache

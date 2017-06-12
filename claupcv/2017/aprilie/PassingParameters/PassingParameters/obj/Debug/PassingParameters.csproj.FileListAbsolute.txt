@@ -1,6 +1,0 @@
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\PassingParameters\PassingParameters\bin\Debug\PassingParameters.exe.config
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\PassingParameters\PassingParameters\bin\Debug\PassingParameters.exe
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\PassingParameters\PassingParameters\bin\Debug\PassingParameters.pdb
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\PassingParameters\PassingParameters\obj\Debug\PassingParameters.exe
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\PassingParameters\PassingParameters\obj\Debug\PassingParameters.pdb
-d:\Work\dev\csharp\trencadis\github\intership\clau\2017\aprilie\PassingParameters\PassingParameters\obj\Debug\PassingParameters.csprojResolveAssemblyReference.cache
