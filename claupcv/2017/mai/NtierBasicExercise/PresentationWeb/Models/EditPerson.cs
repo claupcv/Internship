@@ -3,19 +3,22 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PresentationWeb.Models
 {
-	public class CreatePerson
+	public class EditPerson
     {
-		[Required(ErrorMessageResourceName = "CreatePerson_FirstName",
+		[Required]
+		public int PersonID { get; set; }
+
+		[Required(ErrorMessageResourceName = "EditPerson_FirstName",
 			ErrorMessageResourceType = typeof(Resource))]
 		public string FirstName { get; set; } = "";
 
-		[Required(ErrorMessageResourceName = "CreatePerson_LastName",
+		[Required(ErrorMessageResourceName = "EditPerson_LastName",
 			ErrorMessageResourceType = typeof(Resource))]
 		public string LastName { get; set; } = "";
 
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-		[Required(ErrorMessageResourceName = "CreatePerson_DateOfBirth",
+		[Required(ErrorMessageResourceName = "EditPerson_DateOfBirth",
 			ErrorMessageResourceType = typeof(Resource))]
 		public DateTime DateOfBirth { get; set; } = DateTime.MinValue;
 	}

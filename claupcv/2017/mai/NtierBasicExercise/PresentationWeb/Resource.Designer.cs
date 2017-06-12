@@ -87,5 +87,32 @@ namespace PresentationWeb {
                 return ResourceManager.GetString("CreatePerson_LastName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit DateOfBirth.
+        /// </summary>
+        internal static string EditPerson_DateOfBirth {
+            get {
+                return ResourceManager.GetString("EditPerson_DateOfBirth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit FirstName.
+        /// </summary>
+        internal static string EditPerson_FirstName {
+            get {
+                return ResourceManager.GetString("EditPerson_FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit LastName.
+        /// </summary>
+        internal static string EditPerson_LastName {
+            get {
+                return ResourceManager.GetString("EditPerson_LastName", resourceCulture);
+            }
+        }
     }
 }

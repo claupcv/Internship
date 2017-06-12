@@ -93,29 +93,6 @@ namespace PresentationWeb.Controllers
 		public IActionResult Error()
 		{
 			return View();
-		}	
-
-		public IActionResult DeletePerson(Person person)
-		{
-			var personBO = new PersonBusinessObject(this.personRepository);
-
-			ViewBag.InsertResult = personBO.DeletePerson(person).ToString();
-
-			return RedirectToAction("Index");
-		}
-
-		public IActionResult EditPerson(Person person)
-		{
-			return View(person);
-		}
-
-		public IActionResult PostEditPerson(Person person)
-		{
-			var personBO = new PersonBusinessObject(this.personRepository);
-
-			ViewBag.InsertResult = personBO.EditPerson(person).ToString();
-
-			return RedirectToAction("Index");
-		}
+		}		
 	}
 }

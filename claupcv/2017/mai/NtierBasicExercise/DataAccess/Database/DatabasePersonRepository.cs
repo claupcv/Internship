@@ -134,16 +134,16 @@ namespace DataAccess.Database
 		public Person GetPerson(int PersonID)
 		{
 
-			Person person;
+			Person person = new Person();
 
 			using (var sqlConnection = new SqlConnection(this.connectionString))
 			{
 				using (SqlCommand command = new SqlCommand())
 				{
 
-					command.Connection = sqlConnection;            // <== lacking
+					command.Connection = sqlConnection;
 					command.CommandType = CommandType.Text;
-					command.CommandText = $"SELECT * FROM persons WHERE PersonID=@personID Limit 1";
+					command.CommandText = $"SELECT Top 1 * FROM persons WHERE PersonID=@personID";
 					command.Parameters.AddWithValue("@personID", PersonID);
 
 					sqlConnection.Open();
@@ -164,7 +164,7 @@ namespace DataAccess.Database
 
 				}
 			}
-			return new Person();
+			return person;
 		}
 
 		public SortedCollection<Person, PersonSortCriteria> GetPersonSorted(PersonSortCriteria sortCriteria, SortDirection sortDirection)

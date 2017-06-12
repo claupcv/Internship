@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
-using System;
 using Models;
 using Microsoft.AspNetCore.Mvc.Internal;
 
@@ -18,6 +17,9 @@ namespace PresentationWeb
 			{
 				throw new ArgumentNullException(nameof(bindingContext));
 			}
+
+			var personIDProviderResult =
+				 bindingContext.ValueProvider.GetValue("PersonID");
 
 			var firstNameProviderResult =
 				 bindingContext.ValueProvider.GetValue("FirstName");
@@ -34,7 +36,7 @@ namespace PresentationWeb
 			bindingContext.Result = ModelBindingResult.Success(
 			  new Person()
 			  {
-				  //PersonID = int.Parse(personIDProviderResult.FirstValue),
+				  PersonID = int.Parse(personIDProviderResult.FirstValue),
 				  FirstName = firstNameProviderResult.FirstValue,
 				  LastName = lastNameProviderResult.FirstValue,
 				  DateOfBirth = dateOfBirth

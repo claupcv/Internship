@@ -3,42 +3,45 @@
 }
 @using Models;
 @using Models.Sorting;
-@model SortedCollection<Person, PersonSortCriteria>
+@model  SortedCollection<Person, PersonSortCriteria>
 
 <div>
     <h2>Person list</h2>
-    <p class="alert-info">@ViewBag.InsertResult<p/>
+    <label class="succesMessage">@ViewBag.successMessage</label>
+    <p class="alert-info">@ViewBag.InsertResult<p />
     <div class="right">
         <a href="AddPerson">Create Person</a>
     </div>
     <div class="container-fluid">
-        
+
         <div class="row" style="background-color:#dcd7d7;">
             <div class="col-md-2 ">
                 @Html.ActionLink("#ID", "Index", new { sortParam = "id", sortOrder = ViewBag.IDSortParam })
             </div>
             <div class="col-md-2">
                 @Html.ActionLink("First Name", "Index", new { sortParam = "firstName", sortOrder = ViewBag.FirstNameSortParam })
-            
+
             </div>
             <div class="col-md-2">
                 @Html.ActionLink("Date of Birth", "Index", new { sortParam = "birthtDate", sortOrder = ViewBag.birthtDateSortParam })
-            </div> 
+            </div>
             <div class="col-md-3">
                 Edit Person
             </div>
             <div class="col-md-3">
                 Delete Person
             </div>
-        @foreach (var p in Model.Data)
+            @foreach (var p in Model.Data)
         {
             <div class="row">
                 <div class="col-md-2">@p.PersonID</div>
                 <div class="col-md-2">@p.FirstName</div>
                 <div class="col-md-2">@string.Format("{0:dd-MM-yyyy}", p.DateOfBirth)</div>
-                <div class="col-md-3">@Html.ActionLink("Edit", "EditPerson", new { PersonID = p.PersonID }, new { @class = "editPerson" })</div>
-                <div class="col-md-3">@Html.ActionLink("Delete", "DeletePerson", new { PersonID = p.PersonID }, new { @class = "removePerson" })</div>
+                <div class="col-md-3">@Html.ActionLink("Edit", "", "EditPerson", new { PersonID = p.PersonID }, new { @class = "editPerson" })</div>
+                <div class="col-md-3">@Html.ActionLink("Delete", "DeletePerson", "DeletePerson", new { PersonID = p.PersonID }, new { @class = "removePerson" })</div>
             </div>
-        }        
+        }
+        </div>
     </div>
+
 </div>

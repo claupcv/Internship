@@ -126,4 +126,13 @@
   <data name="CreatePerson_LastName" xml:space="preserve">
     <value>Insert LastName</value>
   </data>
+  <data name="EditPerson_DateOfBirth" xml:space="preserve">
+    <value>Edit DateOfBirth</value>
+  </data>
+  <data name="EditPerson_FirstName" xml:space="preserve">
+    <value>Edit FirstName</value>
+  </data>
+  <data name="EditPerson_LastName" xml:space="preserve">
+    <value>Edit LastName</value>
+  </data>
 </root>

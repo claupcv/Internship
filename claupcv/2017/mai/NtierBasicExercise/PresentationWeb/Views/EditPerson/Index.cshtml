@@ -1,15 +1,22 @@
 @{
-    ViewData["Title"] = "AddPerson";
+    ViewData["Title"] = "Edit Person";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model  PresentationWeb.Models.CreatePerson
-<h2>AddPerson</h2>
+@model PresentationWeb.Models.EditPerson
+<h2>Index</h2>
 
-<form asp-action="SavePerson">
+<form asp-action="EditPerson">
     <div class="form-horizontal">
-        <h4>CreatePerson</h4>
+        <h4>EditPerson</h4>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group hidden">
+            <label asp-for="PersonID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PersonID" class="form-control disabled"  />
+                <span asp-validation-for="PersonID" class="text-danger"></span>
+            </div>
+        </div>
         <div class="form-group">
             <label asp-for="FirstName" class="col-md-2 control-label"></label>
             <div class="col-md-10">
@@ -27,16 +34,17 @@
         <div class="form-group">
             <label asp-for="DateOfBirth" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="DateOfBirth" class="form-control" />
+                <input data-toggle="datepicker" asp-for="DateOfBirth" class="form-control datepicker" />
+                <textarea data-toggle="datepicker"></textarea>
+                <div data-toggle="datepicker"></div>
                 <span asp-validation-for="DateOfBirth" class="text-danger"></span>
 
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
-            <label class="succesMessage" >@ViewBag.successMessage</label>
         </div>
     </div>
 </form>

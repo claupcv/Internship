@@ -26,19 +26,27 @@ namespace PresentationWeb.Controllers
             return View();
         }
 
-		public IActionResult Save(CreatePerson person)
+		public IActionResult SavePerson(CreatePerson person)
 		{
-			var personBO = new PersonBusinessObject(this.personRepository);
-
-			personBO.AddPerson(new CreatePersonDTO()
+			
+			try
 			{
-				FirstName = person.FirstName,
-				LastName = person.LastName,
-				DateOfBirth = person.DateOfBirth
-			});
+				var personBO = new PersonBusinessObject(this.personRepository);
 
-
-			return RedirectToAction("AddPerson");
+				personBO.AddPerson(new CreatePersonDTO()
+				{
+					FirstName = person.FirstName,
+					LastName = person.LastName,
+					DateOfBirth = person.DateOfBirth
+				});
+				ViewBag.successMessage = "PersonSaved";
+			}
+			catch (Exception)
+			{
+				ViewBag.successMessage = "PersonNotSaved";
+			}
+			
+			return RedirectToAction("Index", "Home");
 		}
 	}
 }

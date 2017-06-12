@@ -9,6 +9,7 @@ using DataAccess;
 using System.Data;
 using Models;
 using Models.CRUD;
+using DataAccess.Database;
 
 namespace BusinessObject
 {
@@ -46,14 +47,34 @@ namespace BusinessObject
 				});
 		}
 
-		public Person DeletePerson(Person person)
+		public Person DeletePersonBusiness(Person person)
 		{
 			return this.personsRepository.Delete(person);
 		}
 
-		public Person EditPerson(Person person)
+		public Person EditPerson(EditPersonDTO EditModel)
 		{
-			return this.personsRepository.Edit(person);
+			if (EditModel == null)
+			{
+				throw new Exception();
+			}
+
+			return this.personsRepository.Edit(
+				new Person
+				{
+					PersonID = EditModel.PersonID,
+					FirstName = EditModel.FirstName,
+					LastName = EditModel.LastName,
+					DateOfBirth = EditModel.DateOfBirth
+				});
+		}
+
+		public Person GetPersonBusiness (int PersonID)
+		{ 
+
+			Person person = personsRepository.GetPerson(PersonID);
+			return person;
+				
 		}
 	}
 }

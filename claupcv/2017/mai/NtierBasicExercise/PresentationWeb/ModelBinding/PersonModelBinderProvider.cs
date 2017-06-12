@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Models;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
+using PresentationWeb.Models;
 
 namespace PresentationWeb
 {
