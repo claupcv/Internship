@@ -75,6 +75,7 @@ namespace PresentationWeb
 			var supportedCultures = new[]
 			{
 				new CultureInfo("en-US"),
+				new CultureInfo("ro"),
 				new CultureInfo("ro-RO"),
 			};
 

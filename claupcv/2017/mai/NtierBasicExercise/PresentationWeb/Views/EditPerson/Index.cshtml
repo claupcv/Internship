@@ -34,8 +34,7 @@
         <div class="form-group">
             <label asp-for="DateOfBirth" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input data-toggle="datepicker" asp-for="DateOfBirth" class="form-control datepicker" />
-                <textarea data-toggle="datepicker"></textarea>
+                <input data-toggle="datepicker" asp-for="DateOfBirth" class="form-control datepicker" asp-format="{0:MM/dd/yyyy}" />
                 <div data-toggle="datepicker"></div>
                 <span asp-validation-for="DateOfBirth" class="text-danger"></span>
 

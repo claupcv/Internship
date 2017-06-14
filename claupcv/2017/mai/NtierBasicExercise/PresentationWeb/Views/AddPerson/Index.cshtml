@@ -1,16 +1,20 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@model  PresentationWeb.Models.CreatePerson
+
+@inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = "AddPerson";
+    ViewData["Title"] = Localizer["AddPerson"];
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model  PresentationWeb.Models.CreatePerson
-<h2>AddPerson</h2>
 
 <form asp-action="SavePerson">
     <div class="form-horizontal">
-        <h4>CreatePerson</h4>
+        <h4>@Localizer["AddPerson"]</h4>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
+                        
             <label asp-for="FirstName" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for="FirstName" class="form-control" />
@@ -42,7 +46,7 @@
 </form>
 
 <div>
-    <a asp-controller="Home" asp-action="">Back to List</a>
+    <a asp-controller="Home" asp-action="">@Localizer["BackToList"]</a>
 </div>
 
 @section Scripts {

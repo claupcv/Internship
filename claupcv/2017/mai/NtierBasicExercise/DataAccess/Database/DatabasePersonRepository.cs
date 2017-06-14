@@ -104,13 +104,16 @@ namespace DataAccess.Database
 				using (SqlCommand command = new SqlCommand())
 				{
 
+					var formatDateOfBrth = $"{person.DateOfBirth.Year.ToString()}-" +
+						$"{person.DateOfBirth.Month.ToString()}-{person.DateOfBirth.Day.ToString()}";
+
 					command.Connection = sqlConnection;            // <== lacking
 					command.CommandType = CommandType.Text;
 					command.CommandText = $"UPDATE Persons   SET FirstName = @FirstName,LastName = @lastName, DateOfBirth = @dateOfBirth WHERE PersonID=@personID";
 					command.Parameters.AddWithValue("@personID", person.PersonID);
 					command.Parameters.AddWithValue("@firstName", person.FirstName);
 					command.Parameters.AddWithValue("@lastName", person.LastName);
-					command.Parameters.AddWithValue("@dateOfBirth", person.DateOfBirth);
+					command.Parameters.AddWithValue("@dateOfBirth", formatDateOfBrth);
 
 					try
 					{

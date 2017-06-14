@@ -16,8 +16,8 @@ namespace PresentationWeb.Models
 			ErrorMessageResourceType = typeof(Resource))]
 		public string LastName { get; set; } = "";
 
-		[DataType(DataType.Date)]
-		[DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+		[DataType(DataType.Text)]
+		[DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
 		[Required(ErrorMessageResourceName = "EditPerson_DateOfBirth",
 			ErrorMessageResourceType = typeof(Resource))]
 		public DateTime DateOfBirth { get; set; } = DateTime.MinValue;

@@ -1,4 +1,20 @@
 ﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+@functions
+{
+    string GetRequestDateFormat()
+    {
+        var reqLang = this.Context.Request.Headers["Accept-Language"].ToString();
+        if(reqLang.StartsWith("ro,") ||
+            reqLang.StartsWith("ro-") ||
+            reqLang.StartsWith("ro;"))
+        {
+            return "dd-mm-yy";
+        }
+
+        return "mm-dd-yy";
+    }
+}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,19 +34,14 @@
     </environment>
 
 
+    
+
+
 
     @Html.Raw(JavaScriptSnippet.FullScript)
 
     
-    <link href="~/js/datepicker/jquery-ui.css" rel="stylesheet">
-
-    <script src="~/js/datepicker/jquery-1.10.2.js"></script>
-    <script src="~/js/datepicker/jquery-ui.js"></script>
-    <script>
-    $( function() {
-        $(".datepicker").datepicker();
-    });
-    </script>
+    
 
 </head>
 <body>
@@ -82,6 +93,18 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
+
+    <link href="~/js/datepicker2/jquery-ui.css" rel="stylesheet">
+
+    <script src="~/js/datepicker2/jquery-1.12.4.js"></script>
+    <script src="~/js/datepicker2/jquery-ui.js"></script>
+    <script>
+
+
+        $(function () {
+            $('.datepicker').datepicker({ dateFormat: '@GetRequestDateFormat()' });
+        });
+    </script>
 
     @RenderSection("Scripts", required: false)
 </body>
