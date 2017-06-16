@@ -1,11 +1,40 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 
 @model  PresentationWeb.Models.CreatePerson
-
 @inject IViewLocalizer Localizer
 @{
     ViewData["Title"] = Localizer["AddPerson"];
     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@functions
+{
+    public string GetRequestDateFormat(bool formatJS=true)
+    {
+        var reqLang = this.Context.Request.Headers["Accept-Language"].ToString();
+        if (reqLang.StartsWith("ro,") ||
+            reqLang.StartsWith("ro-") ||
+            reqLang.StartsWith("ro;"))
+        {
+            if(formatJS==true)
+            {
+                return "dd.mm.yy";
+            }
+            else
+            {
+                return "dd.MM.yyyy";
+            }
+
+        }
+        if (formatJS == true)
+        {
+            return "mm/dd/yy";
+        }
+        else
+        {
+            return "MM/dd/yyyy";
+        }
+    }
 }
 
 <form asp-action="SavePerson">
@@ -31,14 +60,15 @@
         <div class="form-group">
             <label asp-for="DateOfBirth" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="DateOfBirth" class="form-control" />
+                <input asp-for="DateOfBirth" class="form-control datepicker" asp-format="{0:@GetRequestDateFormat(false)}"/>
+
                 <span asp-validation-for="DateOfBirth" class="text-danger"></span>
 
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="@Localizer["btnCreatePerson"]"  class="btn btn-default" />
             </div>
             <label class="succesMessage" >@ViewBag.successMessage</label>
         </div>
@@ -49,6 +79,20 @@
     <a asp-controller="Home" asp-action="">@Localizer["BackToList"]</a>
 </div>
 
+<script>
+    if ($('.datepicker[type="date"]').prop('type') != 'date') {
+        $(function () {
+            $('.datepicker').datepicker({
+                changeYear: true,
+                changeMonth: true,
+                dateFormat: '@GetRequestDateFormat()',
+                constrainInput: true,
+                minDate: null,
+                maxDate: '0'
+            }).datepicker('setDate', new Date());
+        });
+    }
+</script>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

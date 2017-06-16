@@ -1,10 +1,43 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Globalization;
+@inject IViewLocalizer Localizer
+@model PresentationWeb.Models.EditPerson
+
 @{
     ViewData["Title"] = "Edit Person";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model PresentationWeb.Models.EditPerson
-<h2>Index</h2>
 
+@functions
+{
+    public string GetRequestDateFormat(bool formatJS = true)
+    {
+        var reqLang = this.Context.Request.Headers["Accept-Language"].ToString();
+        if (reqLang.StartsWith("ro,") ||
+            reqLang.StartsWith("ro-") ||
+            reqLang.StartsWith("ro;"))
+        {
+            if (formatJS == true)
+            {
+                return "dd.mm.yy";
+            }
+            else
+            {
+                return "dd.MM.yyyy";
+            }
+
+        }
+        if (formatJS == true)
+        {
+            return "mm/dd/yy";
+        }
+        else
+        {
+            return "MM/dd/yyyy";
+        }
+    }
+}
+<h2>Index</h2>
 <form asp-action="EditPerson">
     <div class="form-horizontal">
         <h4>EditPerson</h4>
@@ -34,7 +67,9 @@
         <div class="form-group">
             <label asp-for="DateOfBirth" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input data-toggle="datepicker" asp-for="DateOfBirth" class="form-control datepicker" asp-format="{0:MM/dd/yyyy}" />
+                <input data-toggle="datepicker" asp-for="DateOfBirth" class="form-control datepicker" value="@Model.DateOfBirth.ToString("MM/dd/yyyy",CultureInfo.InvariantCulture)" />
+                
+                
                 <div data-toggle="datepicker"></div>
                 <span asp-validation-for="DateOfBirth" class="text-danger"></span>
 
@@ -51,6 +86,30 @@
 <div>
     <a asp-controller="Home" asp-action="">Back to List</a>
 </div>
+
+<script>
+    if ($('.datepicker[type="date"]').prop('type') != 'date') {
+        $(function () {
+            $('.datepicker').datepicker({
+                changeYear: true,
+                changeMonth: true,
+                dateFormat: '@GetRequestDateFormat()',
+                constrainInput: true,
+                minDate: null,
+                maxDate: '0',
+                timepicker: false,
+            });
+        }).datepicker({ dateFormat: '@GetRequestDateFormat()' });
+    }
+    else {
+        $(function () {
+            $('.datepicker').click(function () {
+
+                //this.Format("mm/dd/yy");
+            });
+        });
+    }
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

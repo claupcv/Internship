@@ -1,10 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace PresentationWeb.Models
 {
 	public class EditPerson
     {
+		
 		[Required]
 		public int PersonID { get; set; }
 
@@ -16,8 +18,8 @@ namespace PresentationWeb.Models
 			ErrorMessageResourceType = typeof(Resource))]
 		public string LastName { get; set; } = "";
 
-		[DataType(DataType.Text)]
-		[DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
+		[DataType(DataType.Date)]		
+		//[DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
 		[Required(ErrorMessageResourceName = "EditPerson_DateOfBirth",
 			ErrorMessageResourceType = typeof(Resource))]
 		public DateTime DateOfBirth { get; set; } = DateTime.MinValue;

@@ -16,7 +16,7 @@ namespace PresentationWeb.Models
 		public string LastName { get; set; } = "";
 
 		[DataType(DataType.Date)]
-		[DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
+		//[DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
 		[Display(Name = "DateOfBirth")]
 		[Required(ErrorMessageResourceName = "CreatePerson_DateOfBirth",
 			ErrorMessageResourceType = typeof(Resource))]

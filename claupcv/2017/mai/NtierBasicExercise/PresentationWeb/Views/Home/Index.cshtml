@@ -1,16 +1,34 @@
-﻿@{
-    ViewData["Title"] = "Home";
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = Localizer["lblHome"];
 }
 @using Models;
 @using Models.Sorting;
 @model  SortedCollection<Person, PersonSortCriteria>
 
+@functions
+{
+    public string GetRequestDateFormat()
+    {
+        var reqLang = this.Context.Request.Headers["Accept-Language"].ToString();
+        if (reqLang.StartsWith("ro,") ||
+            reqLang.StartsWith("ro-") ||
+            reqLang.StartsWith("ro;"))
+        {
+            return "dd.MM.yyyy";
+        }
+
+        return "MM/dd/yyyy";
+    }
+}
+
 <div>
-    <h2>Person list</h2>
+    <h2>@Localizer["titlePersonlist"]</h2>
     <label class="succesMessage">@ViewBag.successMessage</label>
     <p class="alert-info">@ViewBag.InsertResult<p />
     <div class="right">
-        <a href="AddPerson">Create Person</a>
+        <a href="AddPerson">@Localizer["linkCreatePerson"]</a>
     </div>
     <div class="container-fluid">
 
@@ -19,29 +37,36 @@
                 @Html.ActionLink("#ID", "Index", new { sortParam = "id", sortOrder = ViewBag.IDSortParam })
             </div>
             <div class="col-md-2">
-                @Html.ActionLink("First Name", "Index", new { sortParam = "firstName", sortOrder = ViewBag.FirstNameSortParam })
+                @Html.ActionLink(Localizer["txtFirstName"].Value, "Index", new { sortParam = "firstName", sortOrder = ViewBag.FirstNameSortParam })
 
             </div>
             <div class="col-md-2">
-                @Html.ActionLink("Date of Birth", "Index", new { sortParam = "birthtDate", sortOrder = ViewBag.birthtDateSortParam })
+                @Html.ActionLink(Localizer["dateDateOfBirth"].Value, "Index", new { sortParam = "birthtDate", sortOrder = ViewBag.birthtDateSortParam })
             </div>
             <div class="col-md-3">
-                Edit Person
+                <label class="col-md-12 control-label">@Localizer["lblEditPerson"]</label>
             </div>
             <div class="col-md-3">
-                Delete Person
+                <label class="col-md-12 control-label">@Localizer["lblDeletePerson"]</label>
             </div>
             @foreach (var p in Model.Data)
-        {
-            <div class="row">
-                <div class="col-md-2">@p.PersonID</div>
-                <div class="col-md-2">@p.FirstName</div>
-                <div class="col-md-2">@string.Format("{0:dd-MM-yyyy}", p.DateOfBirth)</div>
-                <div class="col-md-3">@Html.ActionLink("Edit", "", "EditPerson", new { PersonID = p.PersonID }, new { @class = "editPerson" })</div>
-                <div class="col-md-3">@Html.ActionLink("Delete", "DeletePerson", "DeletePerson", new { PersonID = p.PersonID }, new { @class = "removePerson" })</div>
-            </div>
-        }
+            {
+                <div class="row">
+                    <div class="col-md-2">@p.PersonID</div>
+                    <div class="col-md-2">@p.FirstName</div>
+                    <div class="col-md-2">@string.Format("{0:"+ GetRequestDateFormat ()+ "}", p.DateOfBirth)</div>
+                    <div class="col-md-3">@Html.ActionLink(@Localizer["linkEdit"].Value, "", "EditPerson", new { PersonID = p.PersonID }, new { @class = "editPerson" })</div>
+                    <div class="col-md-3">@Html.ActionLink(@Localizer["linkDelete"].Value, "DeletePerson", "DeletePerson", new { PersonID = p.PersonID }, new { @class = "removePerson" })</div>
+                </div>}
         </div>
     </div>
+    <script>
+    $('a.removePerson').click(function (event) {
 
+        var r = confirm("@Localizer["txtDeletepersonQuestion"]");
+        if (r === false) {
+        event.preventDefault();
+            }
+   })
+    </script>
 </div>

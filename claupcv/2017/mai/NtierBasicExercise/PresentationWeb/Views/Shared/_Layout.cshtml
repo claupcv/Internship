@@ -1,17 +1,20 @@
 ﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @functions
 {
-    string GetRequestDateFormat()
+    public string GetRequestDateFormat()
     {
         var reqLang = this.Context.Request.Headers["Accept-Language"].ToString();
         if(reqLang.StartsWith("ro,") ||
             reqLang.StartsWith("ro-") ||
             reqLang.StartsWith("ro;"))
         {
-            return "dd-mm-yy";
+            return "dd.mm.yy";
         }
 
-        return "mm-dd-yy";
+        return "mm/dd/yy";
     }
 }
 
@@ -31,15 +34,13 @@
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
-
+    </environment>    
 
     
 
-
-
     @Html.Raw(JavaScriptSnippet.FullScript)
 
+    
     
     
 
@@ -66,18 +67,27 @@
         </div>
     </nav>
     <div class="container body-content">
+        
+        <environment names="Development">
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+        </environment>
+
+        <link href="~/js/datepicker2/jquery-ui.css" rel="stylesheet">
+
+        <script src="~/js/datepicker2/jquery-1.12.4.js"></script>
+        <script src="~/js/datepicker2/jquery-ui.js"></script>
+        
         @RenderBody()
+
         <hr />
         <footer>
             <p>&copy; 2017 - PresentationWeb</p>
         </footer>
     </div>
 
-    <environment names="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
+    
     <environment names="Staging,Production">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
@@ -92,20 +102,11 @@
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
-
-    <link href="~/js/datepicker2/jquery-ui.css" rel="stylesheet">
-
-    <script src="~/js/datepicker2/jquery-1.12.4.js"></script>
-    <script src="~/js/datepicker2/jquery-ui.js"></script>
-    <script>
-
-
-        $(function () {
-            $('.datepicker').datepicker({ dateFormat: '@GetRequestDateFormat()' });
-        });
-    </script>
+    </environment>    
 
     @RenderSection("Scripts", required: false)
+
+
+    
 </body>
 </html>

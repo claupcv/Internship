@@ -21,7 +21,7 @@ namespace PresentationWeb.Controllers
 
 		public IActionResult Index(int PersonID)
 		{
-			var personBO = new PersonBusinessObject(this.personRepository);
+		    var personBO = new PersonBusinessObject(this.personRepository);
 			var person = personBO.GetPersonBusiness(PersonID);
 
 			return View("Index", person);

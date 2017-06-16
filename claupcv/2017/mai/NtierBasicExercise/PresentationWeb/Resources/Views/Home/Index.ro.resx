@@ -117,13 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddPerson" xml:space="preserve">
-    <value>Creare Persoana</value>
+  <data name="dateDateOfBirth" xml:space="preserve">
+    <value>Data Nasterii</value>
   </data>
-  <data name="BackToList" xml:space="preserve">
-    <value>Inapoi la lista</value>
+  <data name="lblDeletePerson" xml:space="preserve">
+    <value>Stergere Persoana</value>
   </data>
-  <data name="btnCreatePerson" xml:space="preserve">
-    <value>Creaza Persoana</value>
+  <data name="lblEditPerson" xml:space="preserve">
+    <value>Editare Persoane</value>
+  </data>
+  <data name="lblHome" xml:space="preserve">
+    <value>Acasa</value>
+  </data>
+  <data name="linkCreatePerson" xml:space="preserve">
+    <value>Creaza Persona</value>
+  </data>
+  <data name="linkDelete" xml:space="preserve">
+    <value>Stergere</value>
+  </data>
+  <data name="linkEdit" xml:space="preserve">
+    <value>Editare</value>
+  </data>
+  <data name="titlePersonlist" xml:space="preserve">
+    <value>Lista de Persoane</value>
+  </data>
+  <data name="txtDeletepersonQuestion" xml:space="preserve">
+    <value>Vreti sa stergeti persoana ?</value>
+  </data>
+  <data name="txtFirstName" xml:space="preserve">
+    <value>Nume</value>
   </data>
 </root>
